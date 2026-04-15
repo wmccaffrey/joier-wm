@@ -1,0 +1,2300 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOIER, Bespoke Fine Jewelry Manila</title>
+  <meta name="description" content="JOIER. Private fine jewelry atelier by Walter McCaffrey. Bespoke commissions, enamel signets, custom monograms, and sculptural pieces designed from scratch in Manila, Philippines." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Walter McCaffrey, JOIER" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="canonical" href="https://joier.art/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+  <!-- OG / Social meta -->
+  <meta property="og:title" content="JOIER, Bespoke Fine Jewelry" />
+  <meta property="og:description" content="Private jewelry atelier by Walter McCaffrey. Every piece designed from scratch. Commissions open." />
+  <meta property="og:image" content="https://joier.art/joier-images/kroma/KR007.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://joier.art/" />
+  <meta property="og:site_name" content="JOIER" />
+  <meta property="og:locale" content="en_PH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JOIER" />
+  <meta name="twitter:description" content="Bespoke fine jewelry by Walter McCaffrey. No catalog. No inventory. Yours will be built for you." />
+  <meta name="twitter:image" content="https://joier.art/joier-images/kroma/KR007.jpg" />
+
+  <!-- Structured Data, Local Business + Jewelry Store -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["JewelryStore", "LocalBusiness"],
+    "name": "JOIER",
+    "alternateName": "JOIER",
+    "description": "Private fine jewelry atelier specializing in bespoke commissions, enamel signet rings, custom monograms, and sculptural pieces. Every piece designed from scratch by Walter McCaffrey.",
+    "url": "https://joier.art",
+    "logo": "https://joier.art/joier-images/logo.svg",
+    "image": "https://joier.art/joier-images/kroma/KR007.jpg",
+    "founder": {
+      "@type": "Person",
+      "name": "Walter McCaffrey",
+      "jobTitle": "Jewelry Designer"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Manila",
+      "addressCountry": "PH"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "joier.mnl@gmail.com",
+      "contactType": "customer service",
+      "availableLanguage": "English"
+    },
+    "sameAs": [
+      "https://www.instagram.com/joier_jewelry"
+    ],
+    "priceRange": "₱₱₱",
+    "currenciesAccepted": "PHP",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Bespoke Jewelry Collections",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "KROMA Enamel Signet Ring"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Custom Monogram Pendant"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Bespoke Engagement Ring"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Sculptural Brooch"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Custom ID Bracelet"}}
+      ]
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="joier-images/pendants/PE076.jpg" fetchpriority="high" />
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── DARK THEME (odd days) ─────────────────────────────── */
+    :root {
+      --bg:          #0a0a0a;
+      --bg-2:        #111111;
+      --bg-3:        #161616;
+      --gold:        #c9a96e;
+      --gold-light:  #e0c38a;
+      --gold-dim:    #8c7148;
+      --text:        #e8e0d0;
+      --text-muted:  #7a7268;
+      --border:      rgba(201,169,110,0.18);
+      --border-soft: rgba(255,255,255,0.06);
+      --ff-serif:    'Cormorant Garamond', Georgia, serif;
+      --ff-sans:     'Montserrat', sans-serif;
+      --vignette-color:     #161616;
+      --vignette-color-2:   #111111;
+      --vignette-color-3:   #0a0a0a;
+      --card-info-bg:       rgba(10,10,10,0.92);
+      --card-badge-bg:      rgba(10,10,10,0.7);
+      --lightbox-bg:        rgba(10,10,10,0.97);
+      --lightbox-hdr:       rgba(0,0,0,0.8);
+      --lightbox-ftr:       rgba(0,0,0,0.85);
+      --nav-bg:             rgba(10,10,10,0.95);
+      --mobile-nav-bg:      rgba(10,10,10,0.98);
+      --select-bg:          #1a1a1a;
+      --hero-grad-1:        rgba(10,10,10,0.1);
+      --hero-grad-2:        rgba(10,10,10,0.2);
+      --hero-grad-3:        rgba(10,10,10,0.85);
+      --hero-grad-4:        rgba(10,10,10,1);
+    }
+
+    /* ─── LIGHT THEME (even days) ───────────────────────────── */
+    :root.theme-light {
+      --bg:          #d6dce6;
+      --bg-2:        #ccd3de;
+      --bg-3:        #c2cad6;
+      --gold:        #c9a96e;
+      --gold-light:  #a07840;
+      --gold-dim:    #8c7148;
+      --text:        #1a1a2e;
+      --text-muted:  #4a5568;
+      --border:      rgba(214,220,230,0.3);
+      --border-soft: rgba(214,220,230,0.15);
+      --ff-serif:    'Cormorant Garamond', Georgia, serif;
+      --ff-sans:     'Montserrat', sans-serif;
+      --vignette-color:     #c2cad6;
+      --vignette-color-2:   #ccd3de;
+      --vignette-color-3:   #d6dce6;
+      --card-info-bg:       rgba(214,220,230,0.92);
+      --card-badge-bg:      rgba(214,220,230,0.7);
+      --lightbox-bg:        rgba(214,220,230,0.97);
+      --lightbox-hdr:       rgba(214,220,230,0.8);
+      --lightbox-ftr:       rgba(214,220,230,0.85);
+      --nav-bg:             rgba(214,220,230,0.95);
+      --mobile-nav-bg:      rgba(214,220,230,0.98);
+      --select-bg:          #ccd3de;
+      --hero-grad-1:        rgba(214,220,230,0.1);
+      --hero-grad-2:        rgba(214,220,230,0.2);
+      --hero-grad-3:        rgba(214,220,230,0.85);
+      --hero-grad-4:        rgba(214,220,230,1);
+    }
+
+    /* ─── GREIGE THEME (🌿 toggle) ──────────────────────────── */
+    :root.theme-jade {
+      --bg:          #cdc8be;
+      --bg-2:        #c4bfb5;
+      --bg-3:        #bbb6ac;
+      --gold:        #c9a96e;
+      --gold-light:  #e0c38a;
+      --gold-dim:    #8c7148;
+      --text:        #e8e0d0;
+      --text-muted:  #7a7268;
+      --border:      rgba(201,169,110,0.18);
+      --border-soft: rgba(255,255,255,0.06);
+      --ff-serif:    'Cormorant Garamond', Georgia, serif;
+      --ff-sans:     'Montserrat', sans-serif;
+      --vignette-color:     #bbb6ac;
+      --vignette-color-2:   #c4bfb5;
+      --vignette-color-3:   #cdc8be;
+      --card-info-bg:       rgba(187,182,172,0.92);
+      --card-badge-bg:      rgba(187,182,172,0.7);
+      --lightbox-bg:        rgba(205,200,190,0.97);
+      --lightbox-hdr:       rgba(205,200,190,0.8);
+      --lightbox-ftr:       rgba(205,200,190,0.85);
+      --nav-bg:             rgba(205,200,190,0.95);
+      --mobile-nav-bg:      rgba(205,200,190,0.98);
+      --select-bg:          #c4bfb5;
+      --hero-grad-1:        rgba(205,200,190,0.1);
+      --hero-grad-2:        rgba(205,200,190,0.2);
+      --hero-grad-3:        rgba(205,200,190,0.85);
+      --hero-grad-4:        rgba(205,200,190,1);
+    }
+
+
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-sans);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      overflow-x: hidden;
+    }
+
+    img { display: block; width: 100%; object-fit: cover; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ───────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 3.5rem;
+      background: linear-gradient(to bottom, var(--nav-bg) 0%, transparent 100%);
+      backdrop-filter: blur(2px);
+    }
+
+    .nav-logo {
+      font-family: var(--ff-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+    }
+    .nav-logo span {
+      font-weight: 300;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      display: block;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ─── HERO ──────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-bg img {
+      height: 100%;
+      object-position: center 30%;
+      filter: brightness(0.55);
+    }
+
+    /* gradient overlay */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        var(--hero-grad-1) 0%,
+        var(--hero-grad-2) 40%,
+        var(--hero-grad-3) 80%,
+        var(--hero-grad-4) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 5rem 3.5rem;
+      max-width: 700px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: 0.72rem;
+      line-height: 2;
+      color: var(--text-muted);
+      max-width: 400px;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      font-family: var(--ff-sans);
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn:hover {
+      background: var(--gold);
+      color: var(--bg);
+    }
+    .btn-solid {
+      background: var(--gold);
+      color: var(--bg);
+    }
+    .btn-solid:hover {
+      background: var(--gold-light);
+    }
+
+    /* ─── SECTION SHARED ────────────────────────────────────── */
+    section { padding: 7rem 3.5rem; }
+
+    .section-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body {
+      font-size: 0.72rem;
+      line-height: 2;
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .gold-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2rem 0;
+    }
+
+    /* ─── ABOUT STRIP ───────────────────────────────────────── */
+    #about {
+      background: var(--bg-2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      position: relative;
+      border-radius: 4px;
+    }
+    .about-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 120px 60px var(--vignette-color-2);
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 40%, var(--vignette-color-2) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .about-img-wrap img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .about-img-wrap:hover img { transform: scale(1.04); }
+
+    /* ─── KROMA COLLECTION ──────────────────────────────────── */
+    #kroma {
+      background: var(--bg);
+    }
+
+    .kroma-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+
+    .kroma-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 1rem;
+    }
+
+    /* hero card, tall left feature */
+    .kg-1 { grid-column: 1 / 6; grid-row: 1 / 3; }
+    /* top-right medium */
+    .kg-2 { grid-column: 6 / 9; grid-row: 1 / 2; }
+    /* top-far-right */
+    .kg-3 { grid-column: 9 / 13; grid-row: 1 / 2; }
+    /* bottom-middle */
+    .kg-4 { grid-column: 6 / 10; grid-row: 2 / 3; }
+    /* bottom-right */
+    .kg-5 { grid-column: 10 / 13; grid-row: 2 / 3; }
+    /* full-width banner */
+    .kg-6 { grid-column: 1 / 13; grid-row: 3 / 4; }
+    /* secondary row */
+    .kg-7 { grid-column: 1 / 5; grid-row: 4 / 5; }
+    .kg-8 { grid-column: 5 / 9; grid-row: 4 / 5; }
+    .kg-9 { grid-column: 9 / 13; grid-row: 4 / 5; }
+
+    .kroma-card {
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-3);
+    }
+    .kroma-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 60px 30px var(--vignette-color);
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 30%, var(--vignette-color) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .kroma-card img.img-contain { object-fit: contain !important; background: var(--vignette-color-3); }
+    .kroma-card img {
+      height: 100%;
+      min-height: 280px;
+      transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94),
+                  filter 0.5s ease;
+      filter: brightness(0.9) contrast(1.05);
+    }
+    .kroma-card:hover img {
+      transform: scale(1.06);
+      filter: brightness(1) contrast(1.05);
+    }
+
+    .kroma-card-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem 1.5rem 1.25rem;
+      background: linear-gradient(transparent, var(--card-info-bg));
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.4s, transform 0.4s;
+    }
+    .kroma-card:hover .kroma-card-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .kroma-card-label h4 {
+      font-family: var(--ff-serif);
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--gold-light);
+    }
+    .kroma-card-label p {
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* ─── PHILOSOPHY ────────────────────────────────────────── */
+    #philosophy {
+      background: var(--bg-2);
+      text-align: center;
+      padding: 8rem 3.5rem;
+    }
+
+    .philosophy-quote {
+      font-family: var(--ff-serif);
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.4;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      color: var(--text);
+    }
+
+    .philosophy-attr {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+
+    /* ─── CONSULTATION FORM ─────────────────────────────────── */
+    #consult {
+      background: var(--bg-2);
+    }
+
+    .consult-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .form-group {
+      margin-bottom: 1.75rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 0.6rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 0;
+      font-family: var(--ff-sans);
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      outline: none;
+      transition: border-color 0.3s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+    }
+    input::placeholder, textarea::placeholder {
+      color: var(--text-muted);
+    }
+    select option {
+      background: var(--select-bg);
+      color: var(--text);
+    }
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    /* contact-type radio pills */
+    .contact-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-pills input[type="radio"] { display: none; }
+    .contact-pills label {
+      margin: 0;
+      padding: 0.4rem 1rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: border-color 0.3s, color 0.3s, background 0.3s;
+      text-transform: uppercase;
+    }
+    .contact-pills input[type="radio"]:checked + label {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,169,110,0.08);
+    }
+    .contact-pills label:hover {
+      border-color: var(--gold-dim);
+      color: var(--text);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    /* ─── ORDER TRACKER ─────────────────────────────────────── */
+    /* ─── FOOTER ────────────────────────────────────────────── */
+    footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border-soft);
+      padding: 5rem 3.5rem 3rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-brand {
+      font-family: var(--ff-serif);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.65rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+      max-width: 260px;
+    }
+
+    .footer-col h5 {
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-col ul a {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+    .footer-col ul a:hover { color: var(--gold); }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--border);
+      padding: 0.4rem 1rem;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .social-pill:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-size: 0.58rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+    .footer-mark {
+      font-family: var(--ff-serif);
+      font-size: 0.7rem;
+      font-style: italic;
+      color: var(--gold-dim);
+    }
+
+    /* ─── FORM SUCCESS MESSAGE ──────────────────────────────── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .form-success.show { display: block; }
+    .form-success h3 {
+      font-family: var(--ff-serif);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .form-success p {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+
+    /* ─── GALLERY ──────────────────────────────────────────── */
+    #gallery { background: var(--bg-2); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .collection-card {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--bg-3);
+    }
+    .collection-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 80px 40px var(--vignette-color-3);
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 30%, var(--vignette-color-3) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .collection-card img {
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.5s;
+      filter: brightness(0.72);
+    }
+    .collection-card:hover img {
+      transform: scale(1.07);
+      filter: brightness(0.55);
+    }
+    .collection-card-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 3rem 1.5rem 1.5rem;
+      background: linear-gradient(transparent, var(--card-info-bg));
+      transition: padding 0.4s;
+      z-index: 3;
+    }
+    .collection-card:hover .collection-card-info { padding-bottom: 2rem; background: linear-gradient(transparent, var(--card-info-bg) 40%); }
+    .collection-card-info h3 {
+      font-family: var(--ff-serif);
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+    }
+    .collection-card-info p {
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+    .collection-card-badge {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-dim);
+      padding: 0.3rem 0.6rem;
+      background: var(--card-badge-bg);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 3;
+    }
+    .collection-card:hover .collection-card-badge { opacity: 1; }
+
+    /* ─── LIGHTBOX ──────────────────────────────────────────── */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--lightbox-bg);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-overlay.active { display: flex; }
+
+    .lightbox-header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, var(--lightbox-hdr), transparent);
+      z-index: 10;
+    }
+    .lightbox-title {
+      font-family: var(--ff-sans);
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .lightbox-close {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 36px; height: 36px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .lightbox-close:hover { border-color: var(--gold); color: var(--gold); }
+
+    .lightbox-img-wrap {
+      max-height: 80vh;
+      max-width: 70vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .lightbox-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 80px 40px var(--lightbox-bg);
+      background: radial-gradient(ellipse 75% 75% at 50% 50%, transparent 35%, var(--lightbox-bg) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .lightbox-img-wrap img {
+      max-height: 80vh;
+      max-width: 70vw;
+      width: auto; height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 48px; height: 48px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s, color 0.3s, background 0.3s;
+      z-index: 10;
+    }
+    .lightbox-nav:hover { border-color: var(--gold); color: var(--gold); }
+    .lightbox-prev { left: 1.5rem; }
+    .lightbox-next { right: 1.5rem; }
+
+    .lightbox-footer {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 6rem 2rem 1.5rem;
+      background: linear-gradient(transparent, var(--lightbox-ftr));
+      text-align: center;
+      pointer-events: none;
+    }
+    .lightbox-label {
+      font-family: var(--ff-serif);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .lightbox-counter {
+      font-size: 0.55rem;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+    }
+
+    .lightbox-thumbs {
+      position: absolute;
+      bottom: 4.5rem;
+      left: 50%; transform: translateX(-50%);
+      display: flex;
+      gap: 0.4rem;
+      overflow-x: auto;
+      max-width: 80vw;
+      padding-bottom: 0.25rem;
+      pointer-events: all;
+    }
+    .lightbox-thumbs::-webkit-scrollbar { height: 3px; }
+    .lightbox-thumbs::-webkit-scrollbar-thumb { background: var(--gold-dim); }
+    .lightbox-thumb {
+      width: 50px; height: 50px;
+      flex-shrink: 0;
+      cursor: pointer;
+      object-fit: cover;
+      opacity: 0.45;
+      border: 1px solid transparent;
+      transition: opacity 0.3s, border-color 0.3s;
+    }
+    .lightbox-thumb.active { opacity: 1; border-color: var(--gold); }
+    .lightbox-thumb:hover { opacity: 0.75; }
+
+    /* ─── SCROLL REVEAL ANIMATION ───────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.45s; }
+
+    /* ─── COLLECTION TABS ──────────────────────────────────── */
+    .coll-tab-pills {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .coll-tab-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.5rem 1.5rem;
+      font-family: var(--ff-sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color 0.3s, color 0.3s, background 0.3s;
+    }
+    .coll-tab-btn:hover { border-color: var(--gold-dim); color: var(--text); }
+    .coll-tab-btn.active {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,169,110,0.08);
+    }
+
+    /* ─── HAMBURGER / MOBILE NAV ────────────────────────────── */
+    .hamburger {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 36px; height: 36px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .hamburger:hover { border-color: var(--gold); color: var(--gold); }
+
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--mobile-nav-bg);
+      z-index: 200;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .nav-overlay.open { display: flex; }
+    .nav-overlay a {
+      font-size: 1.1rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+    .nav-overlay a:hover { color: var(--gold); }
+    .nav-overlay-close {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 36px; height: 36px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-overlay-close:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ─── TOUCH DEVICES, always show card labels (no hover) ── */
+    @media (hover: none) {
+      .collection-card-badge { opacity: 1; }
+      .collection-card img { filter: brightness(0.65); }
+      .collection-card-info {
+        background: linear-gradient(transparent, var(--card-info-bg) 40%);
+      }
+      .kroma-card-label { opacity: 1; transform: translateY(0); }
+      .kroma-card img { filter: brightness(0.82) contrast(1.05); }
+    }
+
+    /* ─── TABLET (≤1024px) ──────────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav { padding: 1.25rem 2rem; }
+      section { padding: 5rem 2rem; }
+      #philosophy { padding: 6rem 2rem; }
+      #hero .hero-content { padding: 4rem 2rem; }
+      #about { grid-template-columns: 1fr; }
+      .consult-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+      .kroma-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .kg-1,.kg-2,.kg-3,.kg-4,.kg-5,.kg-6,.kg-7,.kg-8,.kg-9 { grid-column: auto; grid-row: auto; }
+    }
+
+    /* ─── MOBILE (≤640px) ───────────────────────────────────── */
+    @media (max-width: 640px) {
+      /* Nav */
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      nav { padding: 1rem 1.25rem; }
+      .nav-logo { font-size: 1.2rem; }
+      .theme-btn { width: 28px; height: 28px; }
+
+      /* Sections */
+      section { padding: 3.5rem 1.25rem; }
+      #philosophy { padding: 4.5rem 1.25rem; }
+      footer { padding: 3rem 1.25rem 2rem; }
+
+      /* Hero */
+      #hero { min-height: 100svh; }
+      .hero-content { padding: 2rem 1.25rem; max-width: 100%; }
+      .hero-title { font-size: clamp(2.8rem, 11vw, 4.5rem); }
+      .hero-sub { font-size: 0.7rem; max-width: 100%; }
+
+      /* About */
+      .about-img-wrap { aspect-ratio: 4/3; }
+
+      /* Featured collections */
+      .kroma-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .kroma-grid { grid-template-columns: 1fr; }
+      .kroma-card { min-height: 260px; }
+
+      /* Tab pills, horizontal scroll, no wrap */
+      .coll-tab-pills {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.5rem;
+        scrollbar-width: none;
+      }
+      .coll-tab-pills::-webkit-scrollbar { display: none; }
+      .coll-tab-btn { flex-shrink: 0; white-space: nowrap; }
+
+      /* Gallery grid */
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+      .collection-card-info h3 { font-size: 1.1rem; }
+      .collection-card-info p { font-size: 0.52rem; }
+      .section-body { max-width: 100%; }
+
+      /* Lightbox */
+      .lightbox-img-wrap { max-width: 96vw; max-height: 65vh; }
+      .lightbox-img-wrap img { max-width: 96vw; max-height: 65vh; }
+      .lightbox-nav { width: 44px; height: 44px; font-size: 1rem; }
+      .lightbox-prev { left: 0.4rem; }
+      .lightbox-next { right: 0.4rem; }
+      .lightbox-thumb { width: 44px; height: 44px; }
+      .lightbox-thumbs { max-width: 92vw; bottom: 3.5rem; }
+      .lightbox-header { padding: 1rem 1.25rem; }
+      .lightbox-footer { padding: 5rem 1.25rem 1rem; }
+      .lightbox-close { width: 42px; height: 42px; }
+
+      /* Form */
+      .form-row { grid-template-columns: 1fr; }
+      input, select, textarea { padding: 1rem 0; font-size: 0.85rem; }
+      .contact-pills label { padding: 0.5rem 0.85rem; }
+
+
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+    }
+
+    /* ─── VERY SMALL PHONES (≤390px) ───────────────────────── */
+    @media (max-width: 390px) {
+      .hero-title { font-size: clamp(2.4rem, 12vw, 3.2rem); }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .lightbox-nav { width: 36px; height: 36px; }
+    }
+
+    /* ─── THEME TOGGLE ──────────────────────────────────────── */
+    .theme-toggle {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+    .theme-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s, background 0.3s, transform 0.2s;
+      line-height: 1;
+    }
+    .theme-btn:hover { border-color: var(--gold); transform: scale(1.15); }
+    .theme-btn.active { border-color: var(--gold); background: rgba(201,169,110,0.15); }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════ NAV -->
+  <nav>
+    <div class="nav-logo">
+      JOIER
+    </div>
+    <ul class="nav-links">
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#consult">Consult</a></li>
+      <li><a href="https://instagram.com/joier_jewelry" target="_blank">@joier_jewelry</a></li>
+    </ul>
+    <div style="display:flex; align-items:center; gap:0.5rem;">
+      <div class="theme-toggle">
+        <button class="theme-btn active" id="btn-dark"  onclick="setTheme('dark')"  title="Dark">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+          </svg>
+        </button>
+        <button class="theme-btn" id="btn-light" onclick="setTheme('light')" title="Light">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2" x2="12" y2="4"/>
+            <line x1="12" y1="20" x2="12" y2="22"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="2" y1="12" x2="4" y2="12"/>
+            <line x1="20" y1="12" x2="22" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+        <button class="theme-btn" id="btn-jade" onclick="setTheme('jade')" title="Greige">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c0 0-8-4-8-12a8 8 0 0 1 16 0c0 8-8 12-8 12z"/>
+            <line x1="12" y1="22" x2="12" y2="10"/>
+          </svg>
+        </button>
+      </div>
+    <button class="hamburger" onclick="document.getElementById('navOverlay').classList.add('open')" aria-label="Open navigation">&#9776;</button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════ HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <img src="joier-images/pendants/PE076.jpg" alt="Bespoke fine jewelry pendant by JOIER, handcrafted in Manila" fetchpriority="high" />
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">Bespoke Fine Jewelry &nbsp;·&nbsp; Manila</p>
+      <h1 class="hero-title reveal reveal-delay-1">
+        There Is No Catalog.<br /><em>Only What You Commission.</em>
+      </h1>
+      <p class="hero-sub reveal reveal-delay-2">
+        Every piece on this site was made for someone. There is no catalog, no stock,
+        just the piece you want, designed from scratch. JOIER is a private
+        atelier based in Manila.
+      </p>
+      <a href="#consult" class="btn reveal reveal-delay-3">Begin Your Commission</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ ABOUT -->
+  <section id="about">
+    <div class="about-img-wrap reveal">
+      <img src="JOIER_Photos/WM252.jpg" alt="JOIER, bespoke fine jewelry atelier by Walter McCaffrey, Manila" loading="lazy" />
+    </div>
+    <div>
+      <p class="section-label reveal">The Atelier</p>
+      <h2 class="section-title reveal reveal-delay-1">Made for the Person You Love Most.</h2>
+      <div class="gold-rule reveal reveal-delay-2"></div>
+      <p class="section-body reveal reveal-delay-2">
+        Walter McCaffrey has been designing fine jewelry in Manila for over a decade. Every piece on this site was made for a specific person, on commission, from scratch. No catalog. No off-the-shelf. If you are looking for something that has never existed before, this is the right place.
+      </p>
+      <div style="margin-top:2.5rem;" class="reveal reveal-delay-4">
+        <a href="#consult" class="btn">Begin Your Commission</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ FEATURED COLLECTIONS -->
+  <section id="collections">
+    <div class="kroma-header reveal">
+      <div>
+        <p class="section-label">Featured Collection</p>
+        <h2 class="section-title" id="collTabTitle">KROMA</h2>
+        <p class="section-body" id="collTabDesc" style="max-width:380px;">
+          The split-shank signet, a study in chromatic enamel and architectural form. Available in custom colors, metals, and stone combinations.
+        </p>
+      </div>
+      <a href="#consult" class="btn" style="white-space:nowrap;">Commission Yours</a>
+    </div>
+
+    <div class="coll-tab-pills reveal">
+      <button class="coll-tab-btn active" data-tab="kroma" onclick="switchTab('kroma')">KROMA</button>
+      <button class="coll-tab-btn" data-tab="monograms" onclick="switchTab('monograms')">Monograms</button>
+      <button class="coll-tab-btn" data-tab="rings" onclick="switchTab('rings')">Rings</button>
+      <button class="coll-tab-btn" data-tab="pendants" onclick="switchTab('pendants')">Pendants</button>
+      <button class="coll-tab-btn" data-tab="earrings" onclick="switchTab('earrings')">Earrings</button>
+      <button class="coll-tab-btn" data-tab="bracelets" onclick="switchTab('bracelets')">Bracelets</button>
+      <button class="coll-tab-btn" data-tab="brooch" onclick="switchTab('brooch')">Brooch</button>
+    </div>
+
+    <div class="kroma-grid" id="collTabGrid">
+      <!-- populated by switchTab() on load -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ GALLERY -->
+  <section id="gallery">
+    <div style="max-width:600px; margin-bottom:4rem;" class="reveal">
+      <p class="section-label">Portfolio</p>
+      <h2 class="section-title">Browse by Collection</h2>
+      <div class="gold-rule"></div>
+      <p class="section-body">
+        Browse the full portfolio, from the KROMA enamel signet series to bespoke commissions,
+        sculptural earrings, and one-of-a-kind private works. Click any collection to explore.
+      </p>
+    </div>
+    <div class="gallery-grid">
+
+      <div class="collection-card reveal" onclick="openLightbox('kroma')" tabindex="0" role="button" aria-label="Open KROMA collection">
+        <img src="joier-images/kroma/KR010.jpg" alt="KROMA Collection, Enamel Split Ring Signets" loading="lazy" />
+        <span class="collection-card-badge">View Collection</span>
+        <div class="collection-card-info">
+          <h3>KROMA</h3>
+          <p>Split Ring · Enamel Signets · Bling Series</p>
+        </div>
+      </div>
+
+      <div class="collection-card reveal reveal-delay-1" onclick="openLightbox('monogram')" tabindex="0" role="button" aria-label="Open Classic Monograms collection">
+        <img src="JOIER_Photos/monograms/MO025.jpg" alt="Custom monogram pendants and initial jewelry, JOIER Manila" loading="lazy" />
+        <span class="collection-card-badge">View Collection</span>
+        <div class="collection-card-info">
+          <h3>Classic Monograms</h3>
+          <p>Letter Pendants · Initial Jewelry · Crests</p>
+        </div>
+      </div>
+
+      <div class="collection-card reveal reveal-delay-2" onclick="openLightbox('rings')" tabindex="0" role="button" aria-label="Open Rings collection">
+        <img src="joier-images/rings/RI156.jpg" alt="Bespoke rings, gemstone cocktail rings, signet rings, enamel rings, JOIER Manila" loading="lazy" />
+        <span class="collection-card-badge">View Collection</span>
+        <div class="collection-card-info">
+          <h3>Rings</h3>
+          <p>Gemstone · Cocktail · Band · Sculptural</p>
+        </div>
+      </div>
+
+      <div class="collection-card reveal" onclick="openLightbox('pendants')" tabindex="0" role="button" aria-label="Open Pendants collection">
+        <img src="joier-images/pendants/PE090.jpg" alt="Custom pendants, sculptural fine jewelry pendants by JOIER Manila" loading="lazy" />
+        <span class="collection-card-badge">View Collection</span>
+        <div class="collection-card-info">
+          <h3>Pendants</h3>
+          <p>Fine Pendants · Drops · Sculptural Forms</p>
+        </div>
+      </div>
+
+      <div class="collection-card reveal reveal-delay-1" onclick="openLightbox('earrings')" tabindex="0" role="button" aria-label="Open Earrings collection">
+        <img src="joier-images/earrings/RI038.jpg" alt="Bespoke earrings, geometric sculptural drops and statement earrings by JOIER Manila" loading="lazy" />
+        <span class="collection-card-badge">View Collection</span>
+        <div class="collection-card-info">
+          <h3>Earrings</h3>
+          <p>Drops · Studs · Sculptural Forms</p>
+        </div>
+      </div>
+
+      <div class="collection-card reveal" onclick="openLightbox('bracelets')" tabindex="0" role="button" aria-label="Open Bracelets collection">
+        <img src="JOIER_Photos/bracelets/BR001.jpg" alt="Custom ID bracelets and fine bracelets by JOIER Manila" loading="lazy" />
+        <span class="collection-card-badge">View Collection</span>
+        <div class="collection-card-info">
+          <h3>Bracelets</h3>
+          <p>Fine Bracelets · Cuffs · Bespoke Wrist Work</p>
+        </div>
+      </div>
+
+      <div class="collection-card reveal reveal-delay-2" onclick="openLightbox('brooch')" tabindex="0" role="button" aria-label="Open Brooch collection">
+        <img src="JOIER_Photos/brooch/BC005.jpg" alt="Sculptural brooches, wearable art jewelry by JOIER Manila" loading="lazy" />
+        <span class="collection-card-badge">View Collection</span>
+        <div class="collection-card-info">
+          <h3>Brooch</h3>
+          <p>Sculptural · Wearable Objects · Bespoke</p>
+        </div>
+      </div>
+
+
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ CONSULT FORM -->
+  <section id="consult">
+    <div class="consult-wrap">
+      <div>
+        <p class="section-label reveal">Private Commissions</p>
+        <h2 class="section-title reveal reveal-delay-1">
+          Begin Your<br /><em style="font-family:var(--ff-serif); font-style:italic;">Commission</em>
+        </h2>
+        <div class="gold-rule reveal reveal-delay-2"></div>
+        <p class="section-body reveal reveal-delay-2">
+          Every JOIER piece begins with a conversation. Share your vision,
+          or simply share your instinct, and Walter will develop a design
+          study tailored to you.
+        </p>
+        <p class="section-body reveal reveal-delay-3" style="margin-top:1.25rem;">
+          Commissions typically begin at ₱35,000, with most pieces in gold starting higher.
+          Each brief is reviewed personally, with a response within 24–48 hours.
+          First design direction is typically ready 2–3 weeks after approval.
+          No commitment required until you're confident in the direction.
+        </p>
+        <div style="margin-top:3rem;" class="reveal reveal-delay-4">
+          <p style="font-size:0.6rem; letter-spacing:0.2em; color:var(--gold-dim); margin-bottom:0.75rem;">FOLLOW THE WORK</p>
+          <a href="https://instagram.com/joier_jewelry" target="_blank" class="social-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            @joier_jewelry
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <form id="consultForm" onsubmit="submitConsult(event)">
+
+          <!-- Honeypot: hidden from real users, filled by bots -->
+          <div style="position:absolute;left:-9999px;height:0;overflow:hidden;" aria-hidden="true">
+            <input type="text" name="company" id="company" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-group">
+            <label for="fname">Your Name</label>
+            <input type="text" id="fname" name="name" placeholder="Your name" required />
+          </div>
+
+          <div class="form-group">
+            <label>Preferred Contact</label>
+            <div class="contact-pills">
+              <input type="radio" name="contact_type" id="ct-wa" value="WhatsApp" />
+              <label for="ct-wa">WhatsApp</label>
+              <input type="radio" name="contact_type" id="ct-ig" value="Instagram DM" />
+              <label for="ct-ig">Instagram DM</label>
+              <input type="radio" name="contact_type" id="ct-vb" value="Viber" />
+              <label for="ct-vb">Viber</label>
+              <input type="radio" name="contact_type" id="ct-sms" value="SMS" />
+              <label for="ct-sms">SMS</label>
+              <input type="radio" name="contact_type" id="ct-em" value="Email" />
+              <label for="ct-em">Email</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contact_handle">Handle / Number / Email</label>
+            <input type="text" id="contact_handle" name="contact_handle" placeholder="@username, +63 xxx, or email" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="piece_type">Piece Type</label>
+              <select id="piece_type" name="piece_type">
+                <option value="" disabled selected>Select type</option>
+                <option value="Pendant">Pendant</option>
+                <option value="Signet Ring">Signet Ring</option>
+                <option value="Enamel Ring">Enamel Ring</option>
+                <option value="Engagement Ring">Engagement Ring</option>
+                <option value="Band">Band</option>
+                <option value="Earrings">Earrings</option>
+                <option value="Bracelet">Bracelet</option>
+                <option value="Brooch">Brooch</option>
+                <option value="Other">Other / Let's Talk</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="metal_pref">Metal Preference</label>
+              <select id="metal_pref" name="metal_pref">
+                <option value="" disabled selected>Select metal</option>
+                <option value="18k Yellow">18K Yellow Gold</option>
+                <option value="18k White">18K White Gold</option>
+                <option value="18k Rose">18K Rose Gold</option>
+                <option value="14k Yellow">14K Yellow Gold</option>
+                <option value="14k White">14K White Gold</option>
+                <option value="Gold Plated Silver">Gold Plated Silver</option>
+                <option value="Sterling Silver">Sterling Silver</option>
+                <option value="Platinum">Platinum</option>
+                <option value="Undecided">Undecided</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Budget Range</label>
+            <select id="budget" name="budget">
+              <option value="" disabled selected>Select a range</option>
+              <option value="20k-50k PHP">₱20,000 – ₱50,000</option>
+              <option value="50k-100k PHP">₱50,000 – ₱100,000</option>
+              <option value="100k-250k PHP">₱100,000 – ₱250,000</option>
+              <option value="250k+ PHP">₱250,000+</option>
+              <option value="Prefer to discuss">Prefer to discuss</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Vision</label>
+            <textarea id="message" name="message" placeholder="Describe your piece: inspiration, occasion, stones, or simply a feeling..."></textarea>
+          </div>
+
+          <p style="font-size:0.58rem; color:var(--text-muted); letter-spacing:0.1em; margin-bottom:1.5rem; line-height:1.8;">
+            Have reference images or sketches? Email them to <span style="color:var(--gold);">joier.mnl@gmail.com</span>
+          </p>
+
+          <button type="submit" class="btn btn-solid" style="width:100%; text-align:center; margin-top:0.5rem;">
+            Begin Your Commission
+          </button>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div style="width:40px;height:1px;background:var(--gold);margin:0 auto 2rem;"></div>
+          <h3>Thank You</h3>
+          <p>Your commission request has been received.<br />Walter will reach out through your preferred channel within 24–48 hours.</p>
+          <div style="margin:2rem auto; padding:1.5rem 2rem; border:1px solid var(--gold); display:inline-block;">
+            <p style="font-size:0.58rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.5rem;">Your Reference Number</p>
+            <p id="confirmedOrderId" style="font-family:var(--ff-serif); font-size:2rem; font-weight:300; color:var(--gold); letter-spacing:0.2em;"></p>
+            <p style="font-size:0.58rem; letter-spacing:0.1em; color:var(--text-muted); margin-top:0.5rem;">Keep this for your records. Walter will reach out directly with next steps.</p>
+          </div>
+          <div style="width:40px;height:1px;background:var(--gold);margin:2rem auto 0;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ AFTER YOUR COMMISSION -->
+  <section id="after-commission">
+    <div style="max-width:580px;" class="reveal">
+      <p class="section-label">After Your Commission</p>
+      <h2 class="section-title reveal reveal-delay-1">After Your<br /><em style="font-family:var(--ff-serif); font-style:italic;">Commission</em></h2>
+      <div class="gold-rule reveal reveal-delay-2"></div>
+      <p class="section-body reveal reveal-delay-2">
+        Once your commission is confirmed, you will receive updates directly through your chosen contact method. Each piece is handled personally, no automated tracking, no generic timelines.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">JOIER</div>
+        <p class="footer-tagline">
+          Private fine jewelry atelier. Bespoke commissions, enamel signets,
+          and sculptural pieces, designed and made by Walter McCaffrey.
+        </p>
+        <div class="footer-social" style="margin-top:1.75rem;">
+          <a href="https://instagram.com/joier_jewelry" target="_blank" class="social-pill">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            @joier_jewelry
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Collections</h5>
+        <ul>
+          <li><a href="#collections">KROMA</a></li>
+          <li><a href="#collections">Classic Monograms</a></li>
+          <li><a href="#gallery">Rings &amp; Pendants</a></li>
+          <li><a href="#consult">Start a Commission</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#consult">Private Consultation</a></li>
+          <li><a href="#consult">Custom Design</a></li>
+          <li><a href="#consult">Redesign / Repurpose</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="https://instagram.com/joier_jewelry" target="_blank">Instagram</a></li>
+          <li><a href="#consult">WhatsApp</a></li>
+          <li><a href="#consult">Viber</a></li>
+          <li><a href="mailto:joier.mnl@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy" id="footerCopy">© 2025 JOIER. All rights reserved.</p>
+      <p class="footer-mark">Designed &amp; Made in Manila</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════ MOBILE NAV OVERLAY -->
+  <div id="navOverlay" class="nav-overlay">
+    <button class="nav-overlay-close" onclick="document.getElementById('navOverlay').classList.remove('open')" aria-label="Close navigation">✕</button>
+    <a href="#collections" onclick="document.getElementById('navOverlay').classList.remove('open'); setTimeout(function(){document.querySelector('#collections').scrollIntoView({behavior:'smooth'})},10); return false;">Collections</a>
+    <a href="#gallery" onclick="document.getElementById('navOverlay').classList.remove('open'); setTimeout(function(){document.querySelector('#gallery').scrollIntoView({behavior:'smooth'})},10); return false;">Gallery</a>
+    <a href="#consult" onclick="document.getElementById('navOverlay').classList.remove('open'); setTimeout(function(){document.querySelector('#consult').scrollIntoView({behavior:'smooth'})},10); return false;">Consult</a>
+    <a href="https://instagram.com/joier_jewelry" target="_blank" onclick="document.getElementById('navOverlay').classList.remove('open')">@joier_jewelry</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="handleLightboxClick(event)">
+    <div class="lightbox-header">
+      <p class="lightbox-title" id="lightboxTitle">Collection</p>
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    </div>
+    <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)" aria-label="Previous image">&#8592;</button>
+    <div class="lightbox-img-wrap">
+      <img id="lightboxImg" src="" alt="" />
+    </div>
+    <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)" aria-label="Next image">&#8594;</button>
+    <div class="lightbox-thumbs" id="lightboxThumbs"></div>
+    <div class="lightbox-footer">
+      <p class="lightbox-label" id="lightboxLabel"></p>
+      <p class="lightbox-counter" id="lightboxCounter"></p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ SCRIPTS -->
+  <script>
+    /* ── Collections Data ── */
+const collectionsData = {
+      kroma: {
+        title: 'KROMA',
+        images: [
+          { src: 'joier-images/kroma/KR023.jpg', label: 'KR023' },
+          { src: 'joier-images/kroma/KR024.jpg', label: 'KR024' },
+          { src: 'joier-images/kroma/KR025.jpg', label: 'KR025' },
+          { src: 'joier-images/kroma/KR026.jpg', label: 'KR026' },
+          { src: 'joier-images/kroma/KR027.jpg', label: 'KR027' },
+          { src: 'joier-images/kroma/KR028.jpg', label: 'KR028' },
+          { src: 'joier-images/kroma/KR029.jpg', label: 'KR029' },
+          { src: 'joier-images/kroma/KR005.jpg', label: 'KR005' },
+          { src: 'joier-images/kroma/KR006.jpg', label: 'KR006' },
+          { src: 'joier-images/kroma/KR007.jpg', label: 'KR007' },
+          { src: 'joier-images/kroma/KR008.jpg', label: 'KR008' },
+          { src: 'joier-images/kroma/KR009.jpg', label: 'KR009' },
+          { src: 'joier-images/kroma/KR011.jpg', label: 'KR011' },
+          { src: 'joier-images/kroma/KR030.jpg', label: 'KR030' },
+          { src: 'joier-images/kroma/KR031.jpg', label: 'KR031' },
+          { src: 'joier-images/kroma/KR032.jpg', label: 'KR032' },
+          { src: 'joier-images/kroma/KR033.jpg', label: 'KR033' },
+          { src: 'joier-images/kroma/KR034.jpg', label: 'KR034' },
+          { src: 'joier-images/kroma/KR035.jpg', label: 'KR035' },
+          { src: 'joier-images/kroma/KR012.jpg', label: 'KR012' },
+          { src: 'joier-images/kroma/KR013.jpg', label: 'KR013' },
+          { src: 'joier-images/kroma/KR014.jpg', label: 'KR014' },
+          { src: 'joier-images/kroma/KR015.jpg', label: 'KR015' },
+          { src: 'joier-images/kroma/KR016.jpg', label: 'KR016' },
+          { src: 'joier-images/kroma/KR017.jpg', label: 'KR017' },
+          { src: 'joier-images/kroma/KR018.jpg', label: 'KR018' },
+          { src: 'joier-images/kroma/KR019.jpg', label: 'KR019' },
+          { src: 'joier-images/kroma/KR020.jpg', label: 'KR020' },
+          { src: 'joier-images/kroma/KR021.jpg', label: 'KR021' },
+          { src: 'joier-images/kroma/KR022.jpg', label: 'KR022' },
+          { src: 'JOIER_Photos/kroma/KR001.jpg', label: 'KR001' },
+          { src: 'JOIER_Photos/kroma/KR002.jpg', label: 'KR002' },
+          { src: 'JOIER_Photos/kroma/KR003.jpg', label: 'KR003' },
+          { src: 'JOIER_Photos/kroma/KR004.jpg', label: 'KR004' },
+        ]
+      },
+      monogram: {
+        title: 'Classic Monograms',
+        images: [
+          { src: 'joier-images/monograms/MO043.jpg', label: 'MO043' },
+          { src: 'joier-images/monograms/MO044.jpg', label: 'MO044' },
+          { src: 'joier-images/monograms/MO048.jpg', label: 'MO048' },
+          { src: 'joier-images/monograms/MO045.jpg', label: 'MO045' },
+          { src: 'joier-images/monograms/MO046.jpg', label: 'MO046' },
+          { src: 'joier-images/monograms/MO047.jpg', label: 'MO047' },
+          { src: 'joier-images/monograms/MO049.jpg', label: 'MO049' },
+          { src: 'joier-images/monograms/MO050.jpg', label: 'MO050' },
+          { src: 'joier-images/monograms/MO051.jpg', label: 'MO051' },
+          { src: 'joier-images/monograms/MO052.jpg', label: 'MO052' },
+          { src: 'joier-images/monograms/MO053.jpg', label: 'MO053' },
+          { src: 'joier-images/monograms/MO054.jpg', label: 'MO054' },
+          { src: 'joier-images/monograms/MO055.jpg', label: 'MO055' },
+          { src: 'joier-images/monograms/MO056.jpg', label: 'MO056' },
+          { src: 'joier-images/monograms/MO057.jpg', label: 'MO057' },
+          { src: 'joier-images/monograms/MO058.jpg', label: 'MO058' },
+          { src: 'joier-images/monograms/MO059.jpg', label: 'MO059' },
+          { src: 'joier-images/monograms/MO060.jpg', label: 'MO060' },
+          { src: 'joier-images/monograms/MO061.jpg', label: 'MO061' },
+          { src: 'joier-images/monograms/MO062.jpg', label: 'MO062' },
+          { src: 'joier-images/monograms/MO063.jpg', label: 'MO063' },
+          { src: 'joier-images/monograms/MO064.jpg', label: 'MO064' },
+          { src: 'JOIER_Photos/monograms/MO002.jpg', label: 'MO002' },
+          { src: 'JOIER_Photos/monograms/MO003.jpg', label: 'MO003' },
+          { src: 'JOIER_Photos/monograms/MO004.jpg', label: 'MO004' },
+          { src: 'JOIER_Photos/monograms/MO005.jpg', label: 'MO005' },
+          { src: 'JOIER_Photos/monograms/MO006.jpg', label: 'MO006' },
+          { src: 'JOIER_Photos/monograms/MO007.jpg', label: 'MO007' },
+          { src: 'JOIER_Photos/monograms/MO008.jpg', label: 'MO008' },
+          { src: 'JOIER_Photos/monograms/MO009.jpg', label: 'MO009' },
+          { src: 'JOIER_Photos/monograms/MO010.jpg', label: 'MO010' },
+          { src: 'JOIER_Photos/monograms/MO011.jpg', label: 'MO011' },
+          { src: 'JOIER_Photos/monograms/MO012.jpg', label: 'MO012' },
+          { src: 'JOIER_Photos/monograms/MO013.jpg', label: 'MO013' },
+          { src: 'JOIER_Photos/monograms/MO014.jpg', label: 'MO014' },
+          { src: 'JOIER_Photos/monograms/MO015.jpg', label: 'MO015' },
+          { src: 'JOIER_Photos/monograms/MO016.jpg', label: 'MO016' },
+          { src: 'JOIER_Photos/monograms/MO017.jpg', label: 'MO017' },
+          { src: 'JOIER_Photos/monograms/MO018.jpg', label: 'MO018' },
+          { src: 'JOIER_Photos/monograms/MO019.jpg', label: 'MO019' },
+          { src: 'JOIER_Photos/monograms/MO020.jpg', label: 'MO020' },
+          { src: 'JOIER_Photos/monograms/MO021.jpg', label: 'MO021' },
+          { src: 'JOIER_Photos/monograms/MO022.jpg', label: 'MO022' },
+          { src: 'JOIER_Photos/monograms/MO023.jpg', label: 'MO023' },
+          { src: 'JOIER_Photos/monograms/MO024.jpg', label: 'MO024' },
+          { src: 'JOIER_Photos/monograms/MO025.jpg', label: 'MO025' },
+          { src: 'JOIER_Photos/monograms/MO026.jpg', label: 'MO026' },
+          { src: 'JOIER_Photos/monograms/MO027.jpg', label: 'MO027' },
+          { src: 'JOIER_Photos/monograms/MO028.jpg', label: 'MO028' },
+          { src: 'JOIER_Photos/monograms/MO029.jpg', label: 'MO029' },
+          { src: 'JOIER_Photos/monograms/MO030.jpg', label: 'MO030' },
+          { src: 'JOIER_Photos/monograms/MO031.jpg', label: 'MO031' },
+          { src: 'JOIER_Photos/monograms/MO032.jpg', label: 'MO032' },
+          { src: 'JOIER_Photos/monograms/MO033.jpg', label: 'MO033' },
+          { src: 'JOIER_Photos/monograms/MO034.jpg', label: 'MO034' },
+          { src: 'JOIER_Photos/monograms/MO035.jpg', label: 'MO035' },
+          { src: 'JOIER_Photos/monograms/MO036.jpg', label: 'MO036' },
+          { src: 'JOIER_Photos/monograms/MO037.jpg', label: 'MO037' },
+          { src: 'JOIER_Photos/monograms/MO038.jpg', label: 'MO038' },
+          { src: 'JOIER_Photos/monograms/MO039.jpg', label: 'MO039' },
+          { src: 'JOIER_Photos/monograms/MO040.jpg', label: 'MO040' },
+          { src: 'JOIER_Photos/monograms/MO041.jpg', label: 'MO041' },
+          { src: 'joier-images/monograms/MO042.jpg', label: 'MO042' },
+        ]
+      },
+      pendants: {
+        title: 'Pendants',
+        images: [
+          { src: 'joier-images/pendants/PE087.jpg', label: 'PE087' },
+          { src: 'joier-images/pendants/PE088.jpg', label: 'PE088' },
+          { src: 'joier-images/pendants/PE089.jpg', label: 'PE089' },
+          { src: 'joier-images/pendants/PE090.jpg', label: 'PE090' },
+          { src: 'joier-images/pendants/PE091.jpg', label: 'PE091' },
+          { src: 'joier-images/pendants/PE092.jpg', label: 'PE092' },
+          { src: 'joier-images/pendants/PE093.jpg', label: 'PE093' },
+          { src: 'joier-images/pendants/PE094.jpg', label: 'PE094' },
+          { src: 'joier-images/pendants/PE095.jpg', label: 'PE095' },
+          { src: 'joier-images/pendants/PE096.jpg', label: 'PE096' },
+          { src: 'joier-images/pendants/PE097.jpg', label: 'PE097' },
+          { src: 'joier-images/pendants/PE098.jpg', label: 'PE098' },
+          { src: 'joier-images/pendants/PE099.jpg', label: 'PE099' },
+          { src: 'joier-images/pendants/PE068.jpg', label: 'PE068' },
+          { src: 'joier-images/pendants/PE100.jpg', label: 'PE100' },
+          { src: 'joier-images/pendants/PE069.jpg', label: 'PE069' },
+          { src: 'joier-images/pendants/PE070.jpg', label: 'PE070' },
+          { src: 'joier-images/pendants/PE071.jpg', label: 'PE071' },
+          { src: 'joier-images/pendants/PE101.jpg', label: 'PE101' },
+          { src: 'joier-images/pendants/PE102.jpg', label: 'PE102' },
+          { src: 'joier-images/pendants/PE103.jpg', label: 'PE103' },
+          { src: 'joier-images/pendants/PE072.jpg', label: 'PE072' },
+          { src: 'joier-images/pendants/PE073.jpg', label: 'PE073' },
+          { src: 'joier-images/pendants/PE074.jpg', label: 'PE074' },
+          { src: 'joier-images/pendants/PE075.jpg', label: 'PE075' },
+          { src: 'joier-images/pendants/PE076.jpg', label: 'PE076' },
+          { src: 'joier-images/pendants/PE077.jpg', label: 'PE077' },
+          { src: 'joier-images/pendants/PE104.jpg', label: 'PE104' },
+          { src: 'joier-images/pendants/PE105.jpg', label: 'PE105' },
+          { src: 'joier-images/pendants/PE106.jpg', label: 'PE106' },
+          { src: 'joier-images/pendants/PE107.jpg', label: 'PE107' },
+          { src: 'joier-images/pendants/PE078.jpg', label: 'PE078' },
+          { src: 'joier-images/pendants/PE079.jpg', label: 'PE079' },
+          { src: 'joier-images/pendants/PE080.jpg', label: 'PE080' },
+          { src: 'joier-images/pendants/PE081.jpg', label: 'PE081' },
+          { src: 'joier-images/pendants/PE082.jpg', label: 'PE082' },
+          { src: 'joier-images/pendants/PE083.jpg', label: 'PE083' },
+          { src: 'joier-images/pendants/PE084.jpg', label: 'PE084' },
+          { src: 'joier-images/pendants/PE085.jpg', label: 'PE085' },
+          { src: 'joier-images/pendants/PE086.jpg', label: 'PE086' },
+          { src: 'joier-images/pendants/PE108.jpg', label: 'PE108' },
+          { src: 'JOIER_Photos/pendants/PE001.jpg', label: 'PE001' },
+          { src: 'JOIER_Photos/pendants/PE002.jpg', label: 'PE002' },
+          { src: 'JOIER_Photos/pendants/PE003.jpg', label: 'PE003' },
+          { src: 'JOIER_Photos/pendants/PE004.jpg', label: 'PE004' },
+          { src: 'JOIER_Photos/pendants/PE005.jpg', label: 'PE005' },
+          { src: 'JOIER_Photos/pendants/PE006.jpg', label: 'PE006' },
+          { src: 'JOIER_Photos/pendants/PE007.jpg', label: 'PE007' },
+          { src: 'JOIER_Photos/pendants/PE008.jpg', label: 'PE008' },
+          { src: 'JOIER_Photos/pendants/PE009.jpg', label: 'PE009' },
+          { src: 'JOIER_Photos/pendants/PE010.jpg', label: 'PE010' },
+          { src: 'JOIER_Photos/pendants/PE011.jpg', label: 'PE011' },
+          { src: 'JOIER_Photos/pendants/PE012.jpg', label: 'PE012' },
+          { src: 'JOIER_Photos/pendants/PE013.jpg', label: 'PE013' },
+          { src: 'JOIER_Photos/pendants/PE014.jpg', label: 'PE014' },
+          { src: 'JOIER_Photos/pendants/PE015.jpg', label: 'PE015' },
+          { src: 'JOIER_Photos/pendants/PE016.jpg', label: 'PE016' },
+          { src: 'JOIER_Photos/pendants/PE017.jpg', label: 'PE017' },
+          { src: 'JOIER_Photos/pendants/PE018.jpg', label: 'PE018' },
+          { src: 'JOIER_Photos/pendants/PE019.jpg', label: 'PE019' },
+          { src: 'JOIER_Photos/pendants/PE020.jpg', label: 'PE020' },
+          { src: 'JOIER_Photos/pendants/PE021.jpg', label: 'PE021' },
+          { src: 'JOIER_Photos/pendants/PE022.jpg', label: 'PE022' },
+          { src: 'JOIER_Photos/pendants/PE023.jpg', label: 'PE023' },
+          { src: 'JOIER_Photos/pendants/PE024.jpg', label: 'PE024' },
+          { src: 'JOIER_Photos/pendants/PE025.jpg', label: 'PE025' },
+          { src: 'JOIER_Photos/pendants/PE026.jpg', label: 'PE026' },
+          { src: 'JOIER_Photos/pendants/PE027.jpg', label: 'PE027' },
+          { src: 'JOIER_Photos/pendants/PE028.jpg', label: 'PE028' },
+          { src: 'JOIER_Photos/pendants/PE029.jpg', label: 'PE029' },
+          { src: 'JOIER_Photos/pendants/PE030.jpg', label: 'PE030' },
+          { src: 'JOIER_Photos/pendants/PE031.jpg', label: 'PE031' },
+          { src: 'JOIER_Photos/pendants/PE032.jpg', label: 'PE032' },
+          { src: 'JOIER_Photos/pendants/PE033.jpg', label: 'PE033' },
+          { src: 'JOIER_Photos/pendants/PE034.jpg', label: 'PE034' },
+          { src: 'JOIER_Photos/pendants/PE035.jpg', label: 'PE035' },
+          { src: 'JOIER_Photos/pendants/PE036.jpg', label: 'PE036' },
+          { src: 'JOIER_Photos/pendants/PE037.jpg', label: 'PE037' },
+          { src: 'JOIER_Photos/pendants/PE038.jpg', label: 'PE038' },
+          { src: 'JOIER_Photos/pendants/PE039.jpg', label: 'PE039' },
+          { src: 'JOIER_Photos/pendants/PE040.jpg', label: 'PE040' },
+          { src: 'JOIER_Photos/pendants/PE041.jpg', label: 'PE041' },
+          { src: 'JOIER_Photos/pendants/PE042.jpg', label: 'PE042' },
+          { src: 'JOIER_Photos/pendants/PE043.jpg', label: 'PE043' },
+          { src: 'JOIER_Photos/pendants/PE044.jpg', label: 'PE044' },
+          { src: 'JOIER_Photos/pendants/PE045.jpg', label: 'PE045' },
+          { src: 'JOIER_Photos/bespoke/BE004.jpg', label: 'BE004' },
+          { src: 'JOIER_Photos/pendants/PE047.jpg', label: 'PE047' },
+          { src: 'JOIER_Photos/pendants/PE048.jpg', label: 'PE048' },
+          { src: 'JOIER_Photos/pendants/PE049.jpg', label: 'PE049' },
+          { src: 'JOIER_Photos/pendants/PE050.jpg', label: 'PE050' },
+          { src: 'JOIER_Photos/brooch/BC001.jpg', label: 'BC001' },
+          { src: 'JOIER_Photos/pendants/PE052.jpg', label: 'PE052' },
+          { src: 'JOIER_Photos/pendants/PE053.jpg', label: 'PE053' },
+          { src: 'JOIER_Photos/bespoke/BE008.jpg', label: 'BE008' },
+          { src: 'JOIER_Photos/pendants/PE056.jpg', label: 'PE056' },
+          { src: 'JOIER_Photos/pendants/PE057.jpg', label: 'PE057' },
+          { src: 'JOIER_Photos/pendants/PE054.jpg', label: 'PE054' },
+          { src: 'JOIER_Photos/pendants/PE058.jpg', label: 'PE058' },
+          { src: 'JOIER_Photos/pendants/PE059.jpg', label: 'PE059' },
+          { src: 'JOIER_Photos/pendants/PE061.jpg', label: 'PE061' },
+          { src: 'JOIER_Photos/pendants/PE062.jpg', label: 'PE062' },
+          { src: 'JOIER_Photos/pendants/PE063.jpg', label: 'PE063' },
+          { src: 'JOIER_Photos/pendants/PE064.jpg', label: 'PE064' },
+          { src: 'JOIER_Photos/pendants/PE065.jpg', label: 'PE065' },
+          { src: 'JOIER_Photos/pendants/PE066.jpg', label: 'PE066' },
+          { src: 'JOIER_Photos/pendants/PE067.jpg', label: 'PE067' },
+          { src: 'JOIER_Photos/pendants/PE060.jpg', label: 'PE060' },
+        ]
+      },
+      rings: {
+        title: 'Rings',
+        images: [
+          { src: 'joier-images/rings/RI077.jpg', label: 'RI077' },
+          { src: 'joier-images/rings/RI054.jpg', label: 'RI054' },
+          { src: 'joier-images/rings/RI078.jpg', label: 'RI078' },
+          { src: 'joier-images/rings/RI055.jpg', label: 'RI055' },
+          { src: 'joier-images/rings/RI079.jpg', label: 'RI079' },
+          { src: 'joier-images/rings/RI080.jpg', label: 'RI080' },
+          { src: 'joier-images/rings/RI081.jpg', label: 'RI081' },
+          { src: 'joier-images/rings/RI082.jpg', label: 'RI082' },
+          { src: 'joier-images/rings/RI083.jpg', label: 'RI083' },
+          { src: 'joier-images/rings/RI084.jpg', label: 'RI084' },
+          { src: 'joier-images/rings/RI085.jpg', label: 'RI085' },
+          { src: 'joier-images/rings/RI086.jpg', label: 'RI086' },
+          { src: 'joier-images/rings/RI087.jpg', label: 'RI087' },
+          { src: 'joier-images/rings/RI088.jpg', label: 'RI088' },
+          { src: 'joier-images/rings/RI089.jpg', label: 'RI089' },
+          { src: 'joier-images/rings/RI090.jpg', label: 'RI090' },
+          { src: 'joier-images/rings/RI091.jpg', label: 'RI091' },
+          { src: 'joier-images/rings/RI092.jpg', label: 'RI092' },
+          { src: 'joier-images/rings/RI056.jpg', label: 'RI056' },
+          { src: 'joier-images/rings/RI093.jpg', label: 'RI093' },
+          { src: 'joier-images/rings/RI094.jpg', label: 'RI094' },
+          { src: 'joier-images/rings/RI095.jpg', label: 'RI095' },
+          { src: 'joier-images/rings/RI057.jpg', label: 'RI057' },
+          { src: 'joier-images/rings/RI096.jpg', label: 'RI096' },
+          { src: 'joier-images/rings/KR036-kroma-h-signet-ring.jpg', label: 'KR036-kroma-h-signet-ring' },
+          { src: 'joier-images/rings/KR038-kroma-split-ring-enamel.jpg', label: 'KR038-kroma-split-ring-enamel' },
+          { src: 'joier-images/kroma/KR010.jpg', label: 'KR010' },
+          { src: 'joier-images/rings/KR041-kroma-with-pendant.jpg', label: 'KR041-kroma-with-pendant' },
+          { src: 'joier-images/rings/KR042-kroma-with-pendant.jpg', label: 'KR042-kroma-with-pendant' },
+          { src: 'joier-images/rings/KR043-kroma-with-pendant.jpg', label: 'KR043-kroma-with-pendant' },
+          { src: 'joier-images/rings/RI097.jpg', label: 'RI097' },
+          { src: 'joier-images/rings/RI058.jpg', label: 'RI058' },
+          { src: 'joier-images/rings/RI059.jpg', label: 'RI059' },
+          { src: 'joier-images/rings/RI098.jpg', label: 'RI098' },
+          { src: 'joier-images/rings/RI099.jpg', label: 'RI099' },
+          { src: 'joier-images/rings/RI100.jpg', label: 'RI100' },
+          { src: 'joier-images/rings/RI101.jpg', label: 'RI101' },
+          { src: 'joier-images/rings/RI102.jpg', label: 'RI102' },
+          { src: 'joier-images/rings/RI103.jpg', label: 'RI103' },
+          { src: 'joier-images/rings/RI104.jpg', label: 'RI104' },
+          { src: 'joier-images/rings/RI105.jpg', label: 'RI105' },
+          { src: 'joier-images/rings/RI106.jpg', label: 'RI106' },
+          { src: 'joier-images/rings/RI107.jpg', label: 'RI107' },
+          { src: 'joier-images/rings/RI108.jpg', label: 'RI108' },
+          { src: 'joier-images/rings/RI109.jpg', label: 'RI109' },
+          { src: 'joier-images/rings/RI110.jpg', label: 'RI110' },
+          { src: 'joier-images/rings/RI111.jpg', label: 'RI111' },
+          { src: 'joier-images/rings/RI112.jpg', label: 'RI112' },
+          { src: 'joier-images/rings/RI113.jpg', label: 'RI113' },
+          { src: 'joier-images/rings/RI114.jpg', label: 'RI114' },
+          { src: 'joier-images/rings/RI115.jpg', label: 'RI115' },
+          { src: 'joier-images/rings/RI116.jpg', label: 'RI116' },
+          { src: 'joier-images/rings/RI117.jpg', label: 'RI117' },
+          { src: 'joier-images/rings/RI118.jpg', label: 'RI118' },
+          { src: 'joier-images/rings/RI119.jpg', label: 'RI119' },
+          { src: 'joier-images/rings/RI120.jpg', label: 'RI120' },
+          { src: 'joier-images/rings/RI121.jpg', label: 'RI121' },
+          { src: 'joier-images/rings/RI122.jpg', label: 'RI122' },
+          { src: 'joier-images/rings/RI123.jpg', label: 'RI123' },
+          { src: 'joier-images/rings/RI124.jpg', label: 'RI124' },
+          { src: 'joier-images/rings/RI125.jpg', label: 'RI125' },
+          { src: 'joier-images/rings/RI126.jpg', label: 'RI126' },
+          { src: 'joier-images/rings/RI127.jpg', label: 'RI127' },
+          { src: 'joier-images/rings/RI128.jpg', label: 'RI128' },
+          { src: 'joier-images/rings/RI129.jpg', label: 'RI129' },
+          { src: 'joier-images/rings/RI130.jpg', label: 'RI130' },
+          { src: 'joier-images/rings/RI131.jpg', label: 'RI131' },
+          { src: 'joier-images/rings/RI132.jpg', label: 'RI132' },
+          { src: 'joier-images/rings/RI133.jpg', label: 'RI133' },
+          { src: 'joier-images/rings/RI134.jpg', label: 'RI134' },
+          { src: 'joier-images/rings/RI135.jpg', label: 'RI135' },
+          { src: 'joier-images/rings/RI136.jpg', label: 'RI136' },
+          { src: 'joier-images/rings/RI137.jpg', label: 'RI137' },
+          { src: 'joier-images/rings/RI138.jpg', label: 'RI138' },
+          { src: 'joier-images/rings/RI139.jpg', label: 'RI139' },
+          { src: 'joier-images/rings/RI140.jpg', label: 'RI140' },
+          { src: 'joier-images/rings/RI141.jpg', label: 'RI141' },
+          { src: 'joier-images/rings/RI142.jpg', label: 'RI142' },
+          { src: 'joier-images/rings/RI143.jpg', label: 'RI143' },
+          { src: 'joier-images/rings/RI144.jpg', label: 'RI144' },
+          { src: 'joier-images/rings/RI145.jpg', label: 'RI145' },
+          { src: 'joier-images/rings/RI146.jpg', label: 'RI146' },
+          { src: 'joier-images/rings/RI147.jpg', label: 'RI147' },
+          { src: 'joier-images/rings/RI148.jpg', label: 'RI148' },
+          { src: 'joier-images/rings/RI149.jpg', label: 'RI149' },
+          { src: 'joier-images/rings/RI150.jpg', label: 'RI150' },
+          { src: 'joier-images/rings/RI151.jpg', label: 'RI151' },
+          { src: 'joier-images/rings/RI152.jpg', label: 'RI152' },
+          { src: 'joier-images/rings/RI153.jpg', label: 'RI153' },
+          { src: 'joier-images/rings/RI154.jpg', label: 'RI154' },
+          { src: 'joier-images/rings/RI155.jpg', label: 'RI155' },
+          { src: 'joier-images/rings/RI156.jpg', label: 'RI156' },
+          { src: 'joier-images/rings/RI157.jpg', label: 'RI157' },
+          { src: 'joier-images/rings/RI158.jpg', label: 'RI158' },
+          { src: 'joier-images/rings/RI061.jpg', label: 'RI061' },
+          { src: 'joier-images/rings/RI062.jpg', label: 'RI062' },
+          { src: 'joier-images/rings/RI063.jpg', label: 'RI063' },
+          { src: 'joier-images/rings/RI064.jpg', label: 'RI064' },
+          { src: 'joier-images/rings/RI065.jpg', label: 'RI065' },
+          { src: 'joier-images/rings/RI066.jpg', label: 'RI066' },
+          { src: 'joier-images/rings/RI067.jpg', label: 'RI067' },
+          { src: 'joier-images/rings/RI068.jpg', label: 'RI068' },
+          { src: 'joier-images/rings/RI069.jpg', label: 'RI069' },
+          { src: 'joier-images/rings/RI070.jpg', label: 'RI070' },
+          { src: 'joier-images/rings/RI071.jpg', label: 'RI071' },
+          { src: 'joier-images/rings/RI072.jpg', label: 'RI072' },
+          { src: 'joier-images/rings/RI073.jpg', label: 'RI073' },
+          { src: 'joier-images/rings/RI074.jpg', label: 'RI074' },
+          { src: 'joier-images/rings/RI075.jpg', label: 'RI075' },
+          { src: 'joier-images/rings/RI076.jpg', label: 'RI076' },
+          { src: 'joier-images/rings/RI159.jpg', label: 'RI159' },
+          { src: 'joier-images/rings/RI160.jpg', label: 'RI160' },
+          { src: 'joier-images/rings/RI161.jpg', label: 'RI161' },
+          { src: 'joier-images/rings/RI162.jpg', label: 'RI162' },
+          { src: 'joier-images/rings/RI163.jpg', label: 'RI163' },
+          { src: 'joier-images/rings/RI164.jpg', label: 'RI164' },
+          { src: 'joier-images/rings/RI165.jpg', label: 'RI165' },
+          { src: 'joier-images/rings/RI166.jpg', label: 'RI166' },
+          { src: 'joier-images/rings/RI168.jpg', label: 'RI168' },
+          { src: 'joier-images/rings/RI169.jpg', label: 'RI169' },
+          { src: 'joier-images/rings/RI170.jpg', label: 'RI170' },
+          { src: 'JOIER_Photos/rings/RI004.jpg', label: 'RI004' },
+          { src: 'JOIER_Photos/rings/RI005.jpg', label: 'RI005' },
+          { src: 'JOIER_Photos/rings/RI006.jpg', label: 'RI006' },
+          { src: 'JOIER_Photos/rings/RI007.jpg', label: 'RI007' },
+          { src: 'JOIER_Photos/rings/RI008.jpg', label: 'RI008' },
+          { src: 'JOIER_Photos/rings/RI009.jpg', label: 'RI009' },
+          { src: 'JOIER_Photos/rings/RI010.jpg', label: 'RI010' },
+          { src: 'JOIER_Photos/rings/RI011.jpg', label: 'RI011' },
+          { src: 'JOIER_Photos/rings/RI012.jpg', label: 'RI012' },
+          { src: 'JOIER_Photos/rings/RI013.jpg', label: 'RI013' },
+          { src: 'JOIER_Photos/rings/RI014.jpg', label: 'RI014' },
+          { src: 'JOIER_Photos/rings/RI015.jpg', label: 'RI015' },
+          { src: 'JOIER_Photos/rings/RI021.jpg', label: 'RI021' },
+          { src: 'JOIER_Photos/rings/RI022.jpg', label: 'RI022' },
+          { src: 'JOIER_Photos/rings/RI016.jpg', label: 'RI016' },
+          { src: 'JOIER_Photos/rings/RI017.jpg', label: 'RI017' },
+          { src: 'JOIER_Photos/rings/RI018.jpg', label: 'RI018' },
+          { src: 'JOIER_Photos/rings/RI019.jpg', label: 'RI019' },
+          { src: 'JOIER_Photos/rings/RI020.jpg', label: 'RI020' },
+          { src: 'JOIER_Photos/rings/RI023.jpg', label: 'RI023' },
+        ]
+      },
+      earrings: {
+        title: 'Earrings',
+        images: [
+          { src: 'joier-images/earrings/RI031.jpg', label: 'RI031' },
+          { src: 'joier-images/earrings/RI032.jpg', label: 'RI032' },
+          { src: 'joier-images/earrings/RI033.jpg', label: 'RI033' },
+          { src: 'joier-images/earrings/RI034.jpg', label: 'RI034' },
+          { src: 'joier-images/earrings/RI035.jpg', label: 'RI035' },
+          { src: 'joier-images/earrings/RI036.jpg', label: 'RI036' },
+          { src: 'joier-images/earrings/RI037.jpg', label: 'RI037' },
+          { src: 'joier-images/earrings/RI038.jpg', label: 'RI038' },
+          { src: 'joier-images/earrings/RI024.jpg', label: 'RI024' },
+          { src: 'joier-images/earrings/RI039.jpg', label: 'RI039' },
+          { src: 'joier-images/earrings/RI040.jpg', label: 'RI040' },
+          { src: 'joier-images/earrings/RI041.jpg', label: 'RI041' },
+          { src: 'joier-images/earrings/RI042.jpg', label: 'RI042' },
+          { src: 'joier-images/earrings/RI043.jpg', label: 'RI043' },
+          { src: 'joier-images/earrings/RI044.jpg', label: 'RI044' },
+          { src: 'joier-images/earrings/RI025.jpg', label: 'RI025' },
+          { src: 'joier-images/earrings/RI045.jpg', label: 'RI045' },
+          { src: 'joier-images/earrings/RI046.jpg', label: 'RI046' },
+          { src: 'joier-images/earrings/RI047.jpg', label: 'RI047' },
+          { src: 'joier-images/earrings/RI048.jpg', label: 'RI048' },
+          { src: 'joier-images/earrings/RI049.jpg', label: 'RI049' },
+          { src: 'joier-images/earrings/RI050.jpg', label: 'RI050' },
+          { src: 'joier-images/earrings/RI051.jpg', label: 'RI051' },
+          { src: 'joier-images/earrings/RI052.jpg', label: 'RI052' },
+          { src: 'joier-images/earrings/RI053.jpg', label: 'RI053' },
+          { src: 'joier-images/earrings/RI026.jpg', label: 'RI026' },
+          { src: 'joier-images/earrings/RI027.jpg', label: 'RI027' },
+          { src: 'joier-images/earrings/RI028.jpg', label: 'RI028' },
+          { src: 'joier-images/earrings/RI029.jpg', label: 'RI029' },
+          { src: 'joier-images/earrings/RI030.jpg', label: 'RI030' },
+          { src: 'JOIER_Photos/earrings/RI001.jpg', label: 'RI001' },
+          { src: 'JOIER_Photos/earrings/RI002.jpg', label: 'RI002' },
+          { src: 'JOIER_Photos/earrings/RI003.jpg', label: 'RI003' },
+        ]
+      },
+      bracelets: {
+        title: 'Bracelets',
+        images: [
+          { src: 'JOIER_Photos/bracelets/BR011.jpg', label: 'BR011' },
+          { src: 'joier-images/bracelets/BR012.jpg', label: 'BR012' },
+          { src: 'JOIER_Photos/bracelets/BR001.jpg', label: 'BR001' },
+          { src: 'JOIER_Photos/bracelets/BR002.jpg', label: 'BR002' },
+          { src: 'JOIER_Photos/bracelets/BR003.jpg', label: 'BR003' },
+          { src: 'JOIER_Photos/bracelets/BR004.jpg', label: 'BR004' },
+          { src: 'JOIER_Photos/bracelets/BR005.jpg', label: 'BR005' },
+          { src: 'JOIER_Photos/bracelets/BR006.jpg', label: 'BR006' },
+          { src: 'JOIER_Photos/bracelets/BR007.jpg', label: 'BR007' },
+          { src: 'JOIER_Photos/bracelets/BR008.jpg', label: 'BR008' },
+          { src: 'JOIER_Photos/bracelets/BR009.jpg', label: 'BR009' },
+          { src: 'JOIER_Photos/bracelets/BR010.jpg', label: 'BR010' },
+          { src: 'JOIER_Photos/monograms/MO001.jpg', label: 'MO001' },
+        ]
+      },
+      brooch: {
+        title: 'Brooch',
+        images: [
+          { src: 'joier-images/brooch/BC007.jpg', label: 'BC007' },
+          { src: 'joier-images/brooch/BC008.jpg', label: 'BC008' },
+          { src: 'joier-images/brooch/BC009.jpg', label: 'BC009' },
+          { src: 'joier-images/brooch/BC010.jpg', label: 'BC010' },
+          { src: 'joier-images/brooch/BC011.jpg', label: 'BC011' },
+          { src: 'joier-images/brooch/BC012.jpg', label: 'BC012' },
+          { src: 'joier-images/brooch/BC013.jpg', label: 'BC013' },
+          { src: 'joier-images/brooch/BC014.jpg', label: 'BC014' },
+          { src: 'joier-images/brooch/BC015.jpg', label: 'BC015' },
+          { src: 'joier-images/brooch/BC016.jpg', label: 'BC016' },
+          { src: 'joier-images/brooch/BC017.jpg', label: 'BC017' },
+          { src: 'JOIER_Photos/brooch/BC003.jpg', label: 'BC003' },
+          { src: 'JOIER_Photos/brooch/BC004.jpg', label: 'BC004' },
+          { src: 'JOIER_Photos/brooch/BC001.jpg', label: 'BC001' },
+          { src: 'JOIER_Photos/brooch/BC005.jpg', label: 'BC005' },
+          { src: 'JOIER_Photos/brooch/BC006.jpg', label: 'BC006' },
+          { src: 'JOIER_Photos/brooch/BC002.jpg', label: 'BC002' },
+        ]
+      },
+      bespoke: {
+        title: 'Finished Work',
+        images: [
+          { src: 'JOIER_Photos/bespoke/BE001.jpg', label: 'BE001' },
+          { src: 'JOIER_Photos/bespoke/BE002.jpg', label: 'BE002' },
+          { src: 'JOIER_Photos/bespoke/BE003.jpg', label: 'BE003' },
+          { src: 'JOIER_Photos/bespoke/BE004.jpg', label: 'BE004' },
+          { src: 'JOIER_Photos/bespoke/BE005.jpg', label: 'BE005' },
+          { src: 'JOIER_Photos/bespoke/BE006.jpg', label: 'BE006' },
+          { src: 'JOIER_Photos/bespoke/BE007.jpg', label: 'BE007' },
+          { src: 'JOIER_Photos/bespoke/BE008.jpg', label: 'BE008' },
+          { src: 'JOIER_Photos/bespoke/BE009.jpg', label: 'BE009' },
+          { src: 'JOIER_Photos/bespoke/BE010.jpg', label: 'BE010' },
+          { src: 'JOIER_Photos/bespoke/BE011.jpg', label: 'BE011' },
+          { src: 'JOIER_Photos/bespoke/BE012.jpg', label: 'BE012' },
+          { src: 'JOIER_Photos/bespoke/BE013.jpg', label: 'BE013' },
+          { src: 'JOIER_Photos/bespoke/BE014.jpg', label: 'BE014' },
+          { src: 'JOIER_Photos/bespoke/BE015.jpg', label: 'BE015' },
+          { src: 'JOIER_Photos/bespoke/BE016.jpg', label: 'BE016' },
+          { src: 'JOIER_Photos/bespoke/BE017.jpg', label: 'BE017' },
+          { src: 'JOIER_Photos/bespoke/BE018.jpg', label: 'BE018' },
+          { src: 'JOIER_Photos/bespoke/BE019.jpg', label: 'BE019' },
+          { src: 'JOIER_Photos/bespoke/BE020.jpg', label: 'BE020' },
+          { src: 'JOIER_Photos/bespoke/BE021.jpg', label: 'BE021' },
+          { src: 'JOIER_Photos/bespoke/BE022.jpg', label: 'BE022' },
+          { src: 'JOIER_Photos/bespoke/BE023.jpg', label: 'BE023' },
+          { src: 'JOIER_Photos/bespoke/BE024.jpg', label: 'BE024' },
+          { src: 'JOIER_Photos/bespoke/BE025.jpg', label: 'BE025' },
+        ]
+      },
+    };
+
+    /* ── Lightbox Logic ── */
+    let lbCollection = null, lbIndex = 0;
+
+    function openLightbox(key) {
+      lbCollection = collectionsData[key];
+      lbIndex = 0;
+      document.getElementById('lightboxTitle').textContent = lbCollection.title;
+      renderLightbox();
+      document.getElementById('lightboxOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightboxOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function renderLightbox() {
+      const item = lbCollection.images[lbIndex];
+      const img = document.getElementById('lightboxImg');
+      img.src = item.src; img.alt = item.label; img.title = item.label;
+      document.getElementById('lightboxLabel').textContent   = item.label;
+      document.getElementById('lightboxCounter').textContent = (lbIndex + 1) + ' / ' + lbCollection.images.length;
+      const thumbsEl = document.getElementById('lightboxThumbs');
+      thumbsEl.innerHTML = lbCollection.images.map((im, i) =>
+        `<img class="lightbox-thumb${i === lbIndex ? ' active' : ''}"
+              src="${im.src}" alt="${im.label}" title="${im.label}" loading="lazy" onclick="lightboxGoTo(${i})" />`
+      ).join('');
+      const active = thumbsEl.querySelector('.active');
+      if (active) active.scrollIntoView({ block: 'nearest', inline: 'center' });
+    }
+    function lightboxNav(dir) {
+      lbIndex = (lbIndex + dir + lbCollection.images.length) % lbCollection.images.length;
+      renderLightbox();
+    }
+    function lightboxGoTo(idx) { lbIndex = idx; renderLightbox(); }
+    function handleLightboxClick(e) {
+      if (e.target === document.getElementById('lightboxOverlay')) closeLightbox();
+    }
+    document.addEventListener('keydown', function(e) {
+      if (!document.getElementById('lightboxOverlay').classList.contains('active')) return;
+      if (e.key === 'ArrowRight') lightboxNav(1);
+      if (e.key === 'ArrowLeft')  lightboxNav(-1);
+      if (e.key === 'Escape')     closeLightbox();
+    });
+
+    /* ── Lightbox swipe support (mobile) ── */
+    (function() {
+      var overlay = document.getElementById('lightboxOverlay');
+      var startX = 0, startY = 0;
+      overlay.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }, { passive: true });
+      overlay.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - startX;
+        var dy = e.changedTouches[0].clientY - startY;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+          lightboxNav(dx < 0 ? 1 : -1);
+        }
+      }, { passive: true });
+    })();
+
+    /* ── Scroll reveal ── */
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+
+    /* ── Consult form → JOIER backend ── */
+    var JOIER_ENDPOINT = 'https://ifcpzzfazihcjxqnacsg.supabase.co/functions/v1/submit-commission';
+
+    function submitConsult(e) {
+      e.preventDefault();
+      var form = document.getElementById('consultForm');
+      var btn = form.querySelector('button[type="submit"]');
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      var data = {
+        company:        form.querySelector('[name="company"]').value,
+        name:           form.querySelector('[name="name"]').value,
+        contact_type:   (form.querySelector('[name="contact_type"]:checked') || {}).value || '',
+        contact_handle: form.querySelector('[name="contact_handle"]').value,
+        piece_type:     form.querySelector('[name="piece_type"]').value,
+        metal_pref:     form.querySelector('[name="metal_pref"]').value,
+        budget:         form.querySelector('[name="budget"]').value,
+        message:        form.querySelector('[name="message"]').value
+      };
+
+      fetch(JOIER_ENDPOINT, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer sb_publishable_fCyPxWGKqGXb4d72b5zR9w_2m83qeDY' }
+      }).then(function(res) {
+        return res.json().then(function(body) {
+          if (res.ok && body.order_reference) {
+            form.style.display = 'none';
+            document.getElementById('confirmedOrderId').textContent = body.order_reference;
+            document.getElementById('formSuccess').classList.add('show');
+          } else {
+            throw new Error(body.error || 'Submission failed');
+          }
+        });
+      }).catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Begin Your Commission';
+        alert('There was an issue submitting the form. Please DM us on Instagram @joier_jewelry instead.');
+      });
+    }
+    /* ── Featured Collections Tab ── */
+    const tabData = {
+      monograms: {
+        title: 'Classic Monograms',
+        desc: 'Letter pendants, shield crests, and initial jewelry, each monogram is a sculptural portrait of a name, designed from scratch and never repeated.',
+        images: [
+          { src: 'JOIER_Photos/monograms/MO025.jpg',                      label: 'Monogram',             sub: 'Bespoke Commission' },
+          { src: 'JOIER_Photos/monograms/MO008.jpg',                      label: 'Monogram',             sub: 'Bespoke Commission' },
+          { src: 'JOIER_Photos/monograms/MO027.jpg',                      label: 'Monogram',             sub: 'Bespoke Commission' },
+          { src: 'JOIER_Photos/monograms/MO037.jpg',                      label: 'Monogram',             sub: 'Bespoke Commission' },
+          { src: 'JOIER_Photos/monograms/MO030.jpg',                               label: 'Ayala B',              sub: 'Bespoke Monogram' },
+        ]
+      },
+      kroma: {
+        title: 'KROMA',
+        desc: 'The split-shank signet, a study in chromatic enamel and architectural form. Available in custom colors, metals, and stone combinations.',
+        images: [
+          { src: 'joier-images/kroma/KR025.jpg', label: 'KROMA',               sub: 'Enamel - 18K Yellow Gold' },
+          { src: 'joier-images/kroma/KR005.jpg', label: 'KROMA Study',         sub: 'Enamel - Diamond Pave' },
+          { src: 'joier-images/kroma/KR034.jpg',       label: 'Spessartine Garnet',  sub: 'Gemstone - Fine Jewelry' },
+          { src: 'joier-images/kroma/KR006.jpg',                    label: 'KROMA Bohol',         sub: 'Enamel - 18K Yellow Gold' },
+          { src: 'joier-images/kroma/KR013.jpg',            label: 'Open w Zambi',        sub: 'Bespoke Commission' },
+          { src: 'joier-images/kroma/KR031.jpg',             label: 'Pinky Signet',        sub: 'Sculptural - Fine Jewelry' },
+        ]
+      },
+      rings: {
+        title: 'Rings',
+        desc: 'Cocktail rings, sculptural settings, and gemstone pieces, from opal moi et toi designs to geometric forms that exist nowhere else.',
+        images: [
+          { src: 'JOIER_Photos/rings/RI023.jpg',                                    label: 'Slim Link',                   sub: 'Bespoke Commission' },
+          { src: 'JOIER_Photos/rings/RI021.jpg',                                   label: 'Cigar Band',                  sub: 'Bespoke Commission' },
+          { src: 'joier-images/rings/RI109.jpg',                          label: 'Family Crest Signet',         sub: 'Bespoke Commission' },
+          { src: 'joier-images/rings/RI169.jpg',                                 label: 'Peridot Clam',                sub: 'Gemstone - Fine Jewelry' },
+          { src: 'joier-images/rings/RI056.jpg',         label: 'Garnet with Salt and Pepper', sub: 'Gemstone - Fine Jewelry' },
+          { src: 'joier-images/rings/RI105.jpg',                                    label: 'Textures',                    sub: 'Design Study' },
+        ]
+      },
+      pendants: {
+        title: 'Pendants',
+        desc: 'Victorian lace openwork, zodiac medallions, boulder crosses, and sculptural drops, pendants built as wearable architecture.',
+        images: [
+          { src: 'JOIER_Photos/pendants/PE059.jpg',          label: 'Track Letters',          sub: 'Monogram - Fine Jewelry' },
+          { src: 'JOIER_Photos/pendants/PE060.jpg',              label: 'Wireframe',              sub: 'Sculptural - Fine Jewelry' },
+          { src: 'JOIER_Photos/pendants/PE058.jpg',       label: 'Textured Stencil',       sub: 'Texture - Fine Jewelry' },
+          { src: 'joier-images/pendants/PE098.jpg',           label: 'Boulder Cross',          sub: 'Cross - Sculptural' },
+          { src: 'JOIER_Photos/pendants/PE053.jpg',          label: 'Radiant Heart',          sub: 'Heart - Fine Jewelry' },
+          { src: 'JOIER_Photos/pendants/PE054.jpg',        label: 'Serpent Embrace',        sub: 'Sculptural - Gold' },
+          { src: 'JOIER_Photos/pendants/PE048.jpg',     label: 'Artifactum Recode',      sub: 'Sculptural - Fine Jewelry' },
+          { src: 'joier-images/pendants/PE073.jpg',               label: 'Sceptre',                sub: 'Sculptural - Fine Jewelry' },
+          { src: 'joier-images/pendants/PE072.jpg',    label: 'Rococo Rose Heart',      sub: 'Heart - Gold' },
+        ]
+      },
+      earrings: {
+        title: 'Earrings',
+        desc: 'Sculptural drops, geometric studs, and statement pieces, each pair designed as a composition, not an afterthought.',
+        images: [
+          { src: 'joier-images/earrings/RI025.jpg',                    label: 'Opal Burst',             sub: 'Opal - Fine Jewelry' },
+          { src: 'JOIER_Photos/earrings/RI001.jpg',       label: 'Fire Opal & Diamonds',   sub: 'Opal - Diamond - Fine Jewelry', imgClass: 'img-contain' },
+          { src: 'joier-images/earrings/RI043.jpg',  label: 'Kunzite & Emerald',      sub: 'Gemstone - Fine Jewelry' },
+          { src: 'joier-images/earrings/RI045.jpg',                     label: 'Opal Drip Earrings',     sub: 'Opal - Drop' },
+          { src: 'joier-images/earrings/RI050.jpg',             label: 'Tetrahedral Earrings',   sub: 'Geometric - Sculptural' },
+          { src: 'joier-images/earrings/RI041.jpg',    label: 'Kunz & Emerald II',      sub: 'Gemstone - Fine Jewelry' },
+        ]
+      },
+      bracelets: {
+        title: 'Bracelets',
+        desc: 'Wrist work built to be worn, each bracelet a study in form, weight, and presence.',
+        images: [
+          { src: 'JOIER_Photos/bracelets/BR010.jpg',    label: 'Small Monogram ID',        sub: 'ID Bracelet' },
+          { src: 'JOIER_Photos/bracelets/BR004.jpg',                   label: 'ESD ID Bracelet',          sub: 'ID Bracelet' },
+          { src: 'JOIER_Photos/bracelets/BR007.jpg',               label: 'KY ID Bracelet',           sub: 'ID Bracelet' },
+          { src: 'JOIER_Photos/bracelets/BR009.jpg',      label: 'RM Red Thread Track',      sub: 'ID Bracelet' },
+          { src: 'JOIER_Photos/bracelets/BR001.jpg',         label: '3 Letter ID Bracelet',     sub: 'ID Bracelet' },
+          { src: 'JOIER_Photos/bracelets/BR002.jpg',  label: 'Assorted ID Bracelet',     sub: 'ID Bracelet' },
+        ]
+      },
+      brooch: {
+        title: 'Brooch',
+        desc: 'Sculptural brooches designed as wearable objects, each piece a composition in metal, form, and intention.',
+        images: [
+          { src: 'JOIER_Photos/brooch/BC004.jpg',              label: 'Crossover',             sub: 'Sculptural Brooch' },
+          { src: 'JOIER_Photos/brooch/BC006.jpg',        label: 'Tri Snake w Torque',    sub: 'Sculptural Brooch' },
+          { src: 'JOIER_Photos/brooch/BC003.jpg',  label: 'Cross w Pearl Sticks',  sub: 'Sculptural Brooch' },
+          { src: 'joier-images/brooch/BC008.jpg',            label: 'Celtic Study',          sub: 'Sculptural Brooch' },
+          { src: 'joier-images/brooch/BC014.jpg',           label: 'Celtic Study VII',      sub: 'Sculptural Brooch' },
+          { src: 'joier-images/brooch/BC017.jpg',    label: 'LEO Recode w Emerald',  sub: 'Sculptural Brooch' },
+        ]
+      }
+    };
+
+    function switchTab(tab) {
+      const data = tabData[tab];
+      document.getElementById('collTabTitle').textContent = data.title;
+      document.getElementById('collTabDesc').textContent = data.desc;
+      document.querySelectorAll('.coll-tab-btn').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.tab === tab);
+      });
+      const positions = tab === 'pendants'
+        ? ['kg-1','kg-2','kg-3','kg-4','kg-5','kg-6','kg-7','kg-8','kg-9']
+        : ['kg-1','kg-2','kg-3','kg-4','kg-5','kg-6'];
+      document.getElementById('collTabGrid').innerHTML = data.images.map(function(img, i) {
+        var media = img.video
+          ? '<video src="' + img.src + '" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>'
+          : '<img src="' + img.src + '" alt="' + img.label + '" loading="lazy"' + (img.imgClass ? ' class="' + img.imgClass + '"' : '') + (img.style ? ' style="' + img.style + '"' : '') + ' />';
+        return '<div class="kroma-card ' + positions[i] + '">' +
+          media +
+          '<div class="kroma-card-label"><h4>' + img.label + '</h4><p>' + img.sub + '</p></div>' +
+          '</div>';
+      }).join('');
+    }
+    switchTab('kroma');
+
+    /* ── Gallery card keyboard handler ── */
+    document.querySelectorAll('.collection-card[tabindex="0"]').forEach(function(card) {
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+      });
+    });
+
+    /* ── Dynamic copyright year ── */
+    var copyEl = document.getElementById('footerCopy');
+    if (copyEl) copyEl.textContent = '© ' + new Date().getFullYear() + ' JOIER. All rights reserved.';
+
+    /* ── Theme toggle ── */
+    function setTheme(theme) {
+      const root = document.documentElement;
+      root.classList.remove('theme-light', 'theme-jade');
+      if (theme === 'light') root.classList.add('theme-light');
+      if (theme === 'jade')  root.classList.add('theme-jade');
+      document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn-' + theme).classList.add('active');
+      localStorage.setItem('joier-theme', theme);
+    }
+
+    /* ── Restore saved theme on load ── */
+    (function() {
+      const saved = localStorage.getItem('joier-theme') || 'dark';
+      setTheme(saved);
+    })();
+
+  </script>
+
+
+</body>
+</html>

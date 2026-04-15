@@ -1,0 +1,22 @@
+# Secrets — never commit
+config.js
+.env
+.env.*
+
+# Internal ops files — not for public repo
+JOIER-FINANCIAL-SYSTEM.md
+JOIER-PIPELINE.md
+JOIER-AIRTABLE-SCHEMA.md
+JOIER-MAKE-BLUEPRINT.md
+
+# Claude Code internal
+CLAUDE.md
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+*.swp

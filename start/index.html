@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start Your Piece — JOIER</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f4f1eb;
+      --text: #1c1b18;
+      --muted: #7a7671;
+      --border: #d5cfc6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 0 28px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 36px 0 0;
+    }
+
+    .brand {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .conversation {
+      flex: 1;
+      padding: 56px 0 32px;
+    }
+
+    .thread {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .message {
+      opacity: 0;
+      transform: translateY(6px);
+      animation: rise 0.45s ease forwards;
+    }
+
+    @keyframes rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .message { animation: none; opacity: 1; transform: none; }
+    }
+
+    .msg-opening {
+      font-size: 26px;
+      font-weight: 300;
+      line-height: 1.45;
+      animation-delay: 0.25s;
+    }
+
+    .msg-user {
+      color: var(--muted);
+      padding-left: 18px;
+      border-left: 1px solid var(--border);
+    }
+
+    .msg-assistant {
+      color: var(--text);
+    }
+
+    .msg-closing {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    .typing {
+      display: none;
+      gap: 7px;
+      align-items: center;
+      padding: 12px 0;
+      margin-top: 4px;
+    }
+
+    .typing.on { display: flex; }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--muted);
+      animation: blink 1.3s ease-in-out infinite;
+    }
+
+    .dot:nth-child(2) { animation-delay: 0.18s; }
+    .dot:nth-child(3) { animation-delay: 0.36s; }
+
+    @keyframes blink {
+      0%, 60%, 100% { opacity: 0.25; }
+      30% { opacity: 1; }
+    }
+
+    .input-area {
+      padding: 24px 0 52px;
+      border-top: 1px solid var(--border);
+    }
+
+    .input-area.gone { display: none; }
+
+    textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      resize: none;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--text);
+      min-height: 72px;
+      caret-color: var(--text);
+    }
+
+    textarea::placeholder { color: var(--muted); }
+
+    .input-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px;
+    }
+
+    .input-hint {
+      font-size: 13px;
+      color: var(--border);
+    }
+
+    .btn-send {
+      background: none;
+      border: 1px solid var(--border);
+      padding: 9px 26px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, border-color 0.18s;
+    }
+
+    .btn-send:hover:not(:disabled) {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    .btn-send:disabled { opacity: 0.35; cursor: default; }
+
+    .contact-form {
+      display: none;
+      padding: 44px 0 64px;
+      border-top: 1px solid var(--border);
+      opacity: 0;
+      animation: rise 0.5s ease 0.1s forwards;
+    }
+
+    .contact-form.on { display: block; }
+
+    .form-intro {
+      font-size: 17px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+
+    .field { margin-bottom: 28px; }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .field input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      outline: none;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 18px;
+      color: var(--text);
+      padding: 6px 0 10px;
+      transition: border-color 0.2s;
+    }
+
+    .field input:focus { border-bottom-color: var(--text); }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      padding: 16px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: opacity 0.2s;
+    }
+
+    .btn-submit:hover:not(:disabled) { opacity: 0.82; }
+    .btn-submit:disabled { opacity: 0.38; cursor: default; }
+
+    .form-err {
+      font-size: 15px;
+      color: #a03535;
+      margin-top: 14px;
+      display: none;
+    }
+
+    .form-err.on { display: block; }
+
+    .thankyou {
+      display: none;
+      padding: 52px 0 72px;
+      opacity: 0;
+      animation: rise 0.5s ease forwards;
+    }
+
+    .thankyou.on { display: block; }
+
+    .thankyou p {
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 480px) {
+      .msg-opening { font-size: 22px; }
+      .page { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <a href="https://joier.art" class="brand">JOIER</a>
+  </header>
+
+  <div class="conversation">
+    <div class="thread" id="thread">
+      <p class="message msg-opening" id="opening">
+        Who is this piece for?
+      </p>
+    </div>
+    <div class="typing" id="typing">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <div class="input-area" id="input-area">
+    <textarea id="input" placeholder="Write freely." rows="3"></textarea>
+    <div class="input-footer">
+      <span class="input-hint">⌘ + Enter to send</span>
+      <button class="btn-send" id="btn-send">Send</button>
+    </div>
+  </div>
+
+  <div class="contact-form" id="contact-form">
+    <p class="form-intro">Leave your details and I'll be in touch within 24 hours.</p>
+    <div class="field">
+      <label for="f-name">Name</label>
+      <input id="f-name" type="text" autocomplete="name" />
+    </div>
+    <div class="field">
+      <label for="f-email">Email</label>
+      <input id="f-email" type="email" autocomplete="email" />
+    </div>
+    <div class="field">
+      <label for="f-whatsapp">WhatsApp <span style="font-style:italic;text-transform:none;letter-spacing:0;font-size:11px;">(optional)</span></label>
+      <input id="f-whatsapp" type="tel" autocomplete="tel" />
+    </div>
+    <button class="btn-submit" id="btn-submit">Submit</button>
+    <p class="form-err" id="form-err"></p>
+  </div>
+
+  <div class="thankyou" id="thankyou">
+    <p>Your piece is now in motion. Expect to hear from me within 24 hours.</p>
+  </div>
+
+</div>
+<script>
+  const WORKER_URL  = 'https://joier-wm.onrender.com';
+  const WEBHOOK_URL = 'https://hook.us2.make.com/zqr8zqoxljg6tk7k5d6j448pel1d8qy7';
+
+  const CLOSING = "I have what I need. I'll be in touch within 24 hours.";
+
+  let messages  = [];
+  let turnCount = 0;
+  let locked    = false;
+
+  const thread      = document.getElementById('thread');
+  const typing      = document.getElementById('typing');
+  const inputArea   = document.getElementById('input-area');
+  const input       = document.getElementById('input');
+  const btnSend     = document.getElementById('btn-send');
+  const contactForm = document.getElementById('contact-form');
+  const btnSubmit   = document.getElementById('btn-submit');
+  const formErr     = document.getElementById('form-err');
+  const thankyou    = document.getElementById('thankyou');
+
+  input.addEventListener('input', () => {
+    input.style.height = 'auto';
+    input.style.height = input.scrollHeight + 'px';
+  });
+
+  input.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+      e.preventDefault();
+      send();
+    }
+  });
+
+  btnSend.addEventListener('click', send);
+
+  function addMessage(type, text) {
+    const el = document.createElement('p');
+    el.className = `message msg-${type}`;
+    el.textContent = text;
+    thread.appendChild(el);
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    return el;
+  }
+
+  function wait(ms) {
+    return new Promise(r => setTimeout(r, ms));
+  }
+
+  async function send() {
+    if (locked) return;
+    const text = input.value.trim();
+    if (!text) return;
+
+    locked = true;
+    btnSend.disabled = true;
+    input.disabled = true;
+
+    addMessage('user', text);
+    messages.push({ role: 'user', content: text });
+    input.value = '';
+    input.style.height = 'auto';
+
+    typing.classList.add('on');
+    typing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    let data;
+    try {
+      const res = await fetch(`${WORKER_URL}/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages, turnCount }),
+      });
+      if (!res.ok) throw new Error(res.status);
+      data = await res.json();
+    } catch {
+      typing.classList.remove('on');
+      const err = addMessage('assistant', 'Something went wrong. Please try again.');
+      err.style.color = '#a03535';
+      locked = false;
+      btnSend.disabled = false;
+      input.disabled = false;
+      await wait(4000);
+      err.remove();
+      return;
+    }
+
+    typing.classList.remove('on');
+    addMessage('assistant', data.content);
+    messages.push({ role: 'assistant', content: data.content });
+    turnCount = data.turnCount;
+
+    if (data.done) {
+      inputArea.classList.add('gone');
+      await wait(900);
+      addMessage('closing', CLOSING);
+      messages.push({ role: 'assistant', content: CLOSING });
+      await wait(700);
+      contactForm.classList.add('on');
+      contactForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      locked = false;
+      btnSend.disabled = false;
+      input.disabled = false;
+      input.focus();
+    }
+  }
+
+  btnSubmit.addEventListener('click', async () => {
+    formErr.classList.remove('on');
+
+    const name     = document.getElementById('f-name').value.trim();
+    const email    = document.getElementById('f-email').value.trim();
+    const whatsapp = document.getElementById('f-whatsapp').value.trim();
+
+    if (!name || !email) {
+      formErr.textContent = 'Name and email are required.';
+      formErr.classList.add('on');
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      formErr.textContent = 'Please enter a valid email address.';
+      formErr.classList.add('on');
+      return;
+    }
+
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = 'Sending...';
+
+    const transcriptText = messages
+      .map(m => (m.role === 'user' ? 'Client' : 'Walter') + ': ' + m.content)
+      .join('\n\n');
+
+    const payload = {
+      name:           name,
+      contact_type:   'Email',
+      contact_handle: email,
+      piece_type:     'AI Commission Inquiry',
+      metal_pref:     '',
+      budget:         '',
+      message:        transcriptText,
+      whatsapp:       whatsapp || '',
+      timestamp:      new Date().toISOString(),
+    };
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(res.status);
+    } catch {
+      formErr.textContent = 'Submission failed. Please try again.';
+      formErr.classList.add('on');
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'Submit';
+      return;
+    }
+
+    contactForm.classList.remove('on');
+    thankyou.classList.add('on');
+    thankyou.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+</script>
+</body>
+</html>
