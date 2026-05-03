@@ -1,492 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Start Your Piece — JOIER</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #f4f1eb;
-      --text: #1c1b18;
-      --muted: #7a7671;
-      --border: #d5cfc6;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Your Commission — JOIER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── CSS custom properties — one set per theme ─────────────── */
+body.light {
+  --bg:        #F0F3F2;
+  --text:      #1C2222;
+  --muted:     rgba(28,34,34,0.62);
+  --faint:     rgba(28,34,34,0.30);
+  --border:    rgba(0,0,0,0.08);
+  --card:      rgba(255,255,255,0.58);
+  --input:     rgba(255,255,255,0.82);
+  --gold:      #A8883C;
+  --coral:     #E06455;
+  --toggle-bg: rgba(0,0,0,0.06);
+  --toggle-a:  #A8883C;
+}
+body.greige {
+  --bg:        #D4CFC4;
+  --text:      #1C2222;
+  --muted:     rgba(28,34,34,0.62);
+  --faint:     rgba(28,34,34,0.30);
+  --border:    rgba(0,0,0,0.10);
+  --card:      rgba(214,209,200,0.65);
+  --input:     rgba(232,228,220,0.85);
+  --gold:      #A8883C;
+  --coral:     #E06455;
+  --toggle-bg: rgba(0,0,0,0.08);
+  --toggle-a:  #A8883C;
+}
+body.dark {
+  --bg:        #090B12;
+  --text:      #E8E4DC;
+  --muted:     rgba(232,228,220,0.68);
+  --faint:     rgba(232,228,220,0.28);
+  --border:    rgba(255,255,255,0.07);
+  --card:      rgba(7,9,16,0.60);
+  --input:     rgba(4,5,12,0.74);
+  --gold:      #C9A55A;
+  --coral:     #FF6B5A;
+  --toggle-bg: rgba(255,255,255,0.07);
+  --toggle-a:  #C9A55A;
+}
 
-    html, body { height: 100%; }
+/* ── Reset & base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 18px;
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-    }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.78;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.45s ease, color 0.45s ease;
+}
 
-    .page {
-      max-width: 620px;
-      margin: 0 auto;
-      padding: 0 28px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+/* ── WebGL canvas ───────────────────────────────────────────── */
+#bg {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0; display: block;
+}
 
-    header {
-      padding: 36px 0 0;
-    }
+#page { position: relative; z-index: 1; }
 
-    .brand {
-      font-size: 12px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-    }
+/* ── Fade-in ────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fi { opacity: 0; animation: fadeUp 0.9s ease forwards; }
+.d1 { animation-delay: 0.15s; } .d2 { animation-delay: 0.40s; }
+.d3 { animation-delay: 0.70s; } .d4 { animation-delay: 1.00s; }
 
-    .conversation {
-      flex: 1;
-      padding: 56px 0 32px;
-    }
+/* ── Nav ────────────────────────────────────────────────────── */
+nav {
+  padding: 24px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem; font-weight: 500;
+  letter-spacing: 8px; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+}
 
-    .thread {
-      display: flex;
-      flex-direction: column;
-      gap: 36px;
-    }
+/* Theme switcher */
+.theme-sw { display: flex; align-items: center; gap: 4px; }
+.tw {
+  background: none; border: none; cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--faint); padding: 5px 10px; border-radius: 4px;
+  transition: color 0.25s, background 0.25s;
+}
+.tw:hover { color: var(--gold); }
+.tw.active { color: var(--gold); background: var(--toggle-bg); }
+.tsep { color: var(--faint); font-size: 0.6rem; }
 
-    .message {
-      opacity: 0;
-      transform: translateY(6px);
-      animation: rise 0.45s ease forwards;
-    }
+/* ── Hero ───────────────────────────────────────────────────── */
+.hero {
+  padding: 88px 48px 56px;
+  max-width: 740px; margin: 0 auto; text-align: center;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.75rem; font-weight: 300; line-height: 1.22;
+  color: var(--gold); letter-spacing: 0.4px;
+}
+.rule {
+  width: 56px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 40%, var(--gold) 60%, transparent);
+  margin: 40px auto 0;
+}
 
-    @keyframes rise {
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* ── Glass cards ─────────────────────────────────────────────── */
+.gwrap { padding: 0 48px; max-width: 776px; margin: 0 auto; }
+.card {
+  background: var(--card);
+  backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--border); border-radius: 16px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.08);
+  padding: 52px 48px;
+  transition: background 0.45s ease, border-color 0.45s ease;
+}
 
-    @media (prefers-reduced-motion: reduce) {
-      .message { animation: none; opacity: 1; transform: none; }
-    }
+/* ── Session copy ────────────────────────────────────────────── */
+.slabel {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem; font-weight: 400; color: var(--gold); margin-bottom: 24px;
+}
+.card p { font-size: 0.91rem; color: var(--muted); margin-bottom: 16px; font-weight: 300; }
+.olist { list-style: none; margin: 18px 0 22px; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.olist li { font-size: 0.91rem; color: var(--muted); font-weight: 300; padding-left: 22px; position: relative; line-height: 1.75; }
+.olist li::before { content: '—'; position: absolute; left: 0; color: var(--coral); }
+.olist li strong { color: var(--text); font-weight: 500; }
+.fn { font-size: 0.76rem !important; color: var(--faint) !important; font-style: italic; margin-top: 8px !important; }
 
-    .msg-opening {
-      font-size: 26px;
-      font-weight: 300;
-      line-height: 1.45;
-      animation-delay: 0.25s;
-    }
+/* ── Form ────────────────────────────────────────────────────── */
+.fwrap { padding: 36px 48px 88px; max-width: 776px; margin: 0 auto; }
+.fintro { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 400; color: var(--gold); margin-bottom: 32px; }
 
-    .msg-user {
-      color: var(--muted);
-      padding-left: 18px;
-      border-left: 1px solid var(--border);
-    }
+.fg { margin-bottom: 24px; }
+.fg label {
+  display: block; font-size: 0.64rem; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--faint); margin-bottom: 8px; font-weight: 400;
+}
+.fg input, .fg select, .fg textarea {
+  width: 100%; background: var(--input);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 13px 17px; font-size: 0.90rem;
+  font-family: 'Inter', sans-serif; color: var(--text); outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.45s ease;
+  -webkit-appearance: none; appearance: none;
+}
+.fg input::placeholder, .fg textarea::placeholder { color: var(--faint); }
+.fg select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%23A8883C' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 17px center;
+  background-color: var(--input); padding-right: 42px; cursor: pointer;
+}
+body.dark .fg select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%23C9A55A' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.fg input:focus, .fg select:focus, .fg textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(168,136,60,0.10);
+}
+body.dark .fg input:focus, body.dark .fg select:focus, body.dark .fg textarea:focus {
+  box-shadow: 0 0 0 3px rgba(201,165,90,0.09);
+}
+.fg textarea { resize: vertical; min-height: 120px; line-height: 1.70; }
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 
-    .msg-assistant {
-      color: var(--text);
-    }
+.btn {
+  position: relative; overflow: hidden; width: 100%;
+  background: var(--coral); color: #fff; border: none; border-radius: 8px;
+  padding: 17px 32px; font-size: 0.77rem; letter-spacing: 3.5px;
+  text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 500;
+  cursor: pointer; margin-top: 10px;
+  transition: background 0.25s, box-shadow 0.3s, transform 0.15s;
+}
+.btn::after {
+  content: ''; position: absolute; top: 0; left: -100%;
+  width: 55%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transform: skewX(-20deg); transition: left 0.6s ease;
+}
+.btn:hover { filter: brightness(1.08); box-shadow: 0 10px 36px rgba(0,0,0,0.18); transform: translateY(-2px); }
+.btn:hover::after { left: 160%; }
+.btn:active { transform: translateY(0); }
+.btn:disabled { opacity: 0.55; cursor: default; transform: none; }
 
-    .msg-closing {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--muted);
-    }
+/* ── Confirmation ────────────────────────────────────────────── */
+#conf { display: none; text-align: center; padding: 60px 24px 16px; }
+#conf.on { display: block; animation: fadeUp 0.8s ease forwards; }
+#conf h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--gold); }
+.crule { width: 40px; height: 1px; background: var(--coral); margin: 26px auto; }
+#conf p { font-size: 0.90rem; color: var(--muted); max-width: 500px; margin: 0 auto 14px; line-height: 1.85; font-weight: 300; }
 
-    .typing {
-      display: none;
-      gap: 7px;
-      align-items: center;
-      padding: 12px 0;
-      margin-top: 4px;
-    }
+/* ── Error message ───────────────────────────────────────────── */
+#form-err { display: none; font-size: 0.80rem; color: var(--coral); margin-top: 12px; text-align: center; }
 
-    .typing.on { display: flex; }
+/* ── Footer ──────────────────────────────────────────────────── */
+footer { border-top: 1px solid var(--border); padding: 32px 48px; text-align: center; }
+footer p { font-size: 0.63rem; letter-spacing: 3px; text-transform: uppercase; color: var(--faint); }
 
-    .dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--muted);
-      animation: blink 1.3s ease-in-out infinite;
-    }
-
-    .dot:nth-child(2) { animation-delay: 0.18s; }
-    .dot:nth-child(3) { animation-delay: 0.36s; }
-
-    @keyframes blink {
-      0%, 60%, 100% { opacity: 0.25; }
-      30% { opacity: 1; }
-    }
-
-    .input-area {
-      padding: 24px 0 52px;
-      border-top: 1px solid var(--border);
-    }
-
-    .input-area.gone { display: none; }
-
-    textarea {
-      width: 100%;
-      background: transparent;
-      border: none;
-      outline: none;
-      resize: none;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 18px;
-      line-height: 1.75;
-      color: var(--text);
-      min-height: 72px;
-      caret-color: var(--text);
-    }
-
-    textarea::placeholder { color: var(--muted); }
-
-    .input-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 14px;
-    }
-
-    .input-hint {
-      font-size: 13px;
-      color: var(--border);
-    }
-
-    .btn-send {
-      background: none;
-      border: 1px solid var(--border);
-      padding: 9px 26px;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 13px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text);
-      cursor: pointer;
-      transition: background 0.18s, color 0.18s, border-color 0.18s;
-    }
-
-    .btn-send:hover:not(:disabled) {
-      background: var(--text);
-      color: var(--bg);
-      border-color: var(--text);
-    }
-
-    .btn-send:disabled { opacity: 0.35; cursor: default; }
-
-    .contact-form {
-      display: none;
-      padding: 44px 0 64px;
-      border-top: 1px solid var(--border);
-      opacity: 0;
-      animation: rise 0.5s ease 0.1s forwards;
-    }
-
-    .contact-form.on { display: block; }
-
-    .form-intro {
-      font-size: 17px;
-      font-style: italic;
-      font-weight: 300;
-      color: var(--muted);
-      margin-bottom: 36px;
-    }
-
-    .field { margin-bottom: 28px; }
-
-    .field label {
-      display: block;
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .field input {
-      width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid var(--border);
-      outline: none;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 18px;
-      color: var(--text);
-      padding: 6px 0 10px;
-      transition: border-color 0.2s;
-    }
-
-    .field input:focus { border-bottom-color: var(--text); }
-
-    .btn-submit {
-      width: 100%;
-      background: var(--text);
-      color: var(--bg);
-      border: none;
-      padding: 16px;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 14px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      cursor: pointer;
-      margin-top: 12px;
-      transition: opacity 0.2s;
-    }
-
-    .btn-submit:hover:not(:disabled) { opacity: 0.82; }
-    .btn-submit:disabled { opacity: 0.38; cursor: default; }
-
-    .form-err {
-      font-size: 15px;
-      color: #a03535;
-      margin-top: 14px;
-      display: none;
-    }
-
-    .form-err.on { display: block; }
-
-    .thankyou {
-      display: none;
-      padding: 52px 0 72px;
-      opacity: 0;
-      animation: rise 0.5s ease forwards;
-    }
-
-    .thankyou.on { display: block; }
-
-    .thankyou p {
-      font-size: 22px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    @media (max-width: 480px) {
-      .msg-opening { font-size: 22px; }
-      .page { padding: 0 20px; }
-    }
-  </style>
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.95rem; }
+  nav, .hero, .gwrap, .fwrap { padding-left: 20px; padding-right: 20px; }
+  .card { padding: 34px 24px; }
+  .frow { grid-template-columns: 1fr; }
+  .theme-sw .tw { padding: 5px 7px; }
+}
+</style>
 </head>
-<body>
-<div class="page">
+<body class="light">
 
-  <header>
+<canvas id="bg"></canvas>
+
+<div id="page">
+
+  <nav class="fi d1">
     <a href="https://joier.art" class="brand">JOIER</a>
-  </header>
-
-  <div class="conversation">
-    <div class="thread" id="thread">
-      <p class="message msg-opening" id="opening">
-        Who is this piece for?
-      </p>
+    <div class="theme-sw" role="group" aria-label="Color theme">
+      <button class="tw active" data-theme="light">Light</button>
+      <span class="tsep" aria-hidden="true">·</span>
+      <button class="tw" data-theme="greige">Greige</button>
+      <span class="tsep" aria-hidden="true">·</span>
+      <button class="tw" data-theme="dark">Dark</button>
     </div>
-    <div class="typing" id="typing">
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
+  </nav>
+
+  <section class="hero fi d2">
+    <h1>Every piece begins the same way.<br>A few questions. One honest conversation.</h1>
+    <div class="rule"></div>
+  </section>
+
+  <div class="gwrap fi d3">
+    <div class="card">
+      <div class="slabel">The Design and Render Session</div>
+      <p>Before anything is made, we build it together.</p>
+      <p>For &#8369;3,000, credited in full toward your finished piece, I design your jewelry and send you detailed CAD studies: the proposed form, the materials, and the finished look, before a single gram of gold is committed. A production quote is included.</p>
+      <p>We work by message at whatever pace suits you: WhatsApp, Viber, or text. A voice call is always available if you prefer to speak.</p>
+      <p>When the design feels right, two paths are open:</p>
+      <ul class="olist">
+        <li><strong>Commission the piece.</strong> The &#8369;3,000 is credited toward your final price.</li>
+        <li><strong>Keep the design package.</strong> The renders, materials study, and production notes are yours, with no further obligation.</li>
+      </ul>
+      <p>Either way, you leave with something real.</p>
+      <p class="fn">*CAD: Computer-Aided Design. The same 3D method used by the world's leading ateliers, so you see the finished piece before it exists.</p>
     </div>
   </div>
 
-  <div class="input-area" id="input-area">
-    <textarea id="input" placeholder="Write freely." rows="3"></textarea>
-    <div class="input-footer">
-      <span class="input-hint">⌘ + Enter to send</span>
-      <button class="btn-send" id="btn-send">Send</button>
+  <div class="fwrap fi d4">
+    <div class="card">
+      <div class="fintro">A few details to begin.</div>
+
+      <form id="form">
+        <div class="frow">
+          <div class="fg">
+            <label for="iname">Your name</label>
+            <input type="text" id="iname" name="name" placeholder="First name is enough" required autocomplete="name">
+          </div>
+          <div class="fg">
+            <label for="iemail">Email</label>
+            <input type="email" id="iemail" name="email" placeholder="I'll reply here personally" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="fg">
+          <label for="ipiece">What are you looking to create?</label>
+          <select id="ipiece" name="piece_type" required>
+            <option value="" disabled selected>Select one...</option>
+            <option>Ring</option><option>Earrings</option>
+            <option>Bracelet / Cuff</option><option>Necklace / Pendant</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="frow">
+          <div class="fg">
+            <label for="imetal">Metal preference</label>
+            <select id="imetal" name="metal" required>
+              <option value="" disabled selected>Select one...</option>
+              <option>Yellow Gold</option><option>White Gold</option>
+              <option>Rose Gold</option><option>Platinum</option>
+              <option>Not sure — let's discuss</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="ibudget">Budget range</label>
+            <select id="ibudget" name="budget" required>
+              <option value="" disabled selected>Select one...</option>
+              <option>&#8369;35,000 – &#8369;70,000 (~$600 – $1,200)</option>
+              <option>&#8369;70,000 – &#8369;140,000 (~$1,200 – $2,400)</option>
+              <option>&#8369;140,000 – &#8369;280,000 (~$2,400 – $4,800)</option>
+              <option>&#8369;280,000+ (~$4,800+)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label for="itime">When do you need it?</label>
+          <select id="itime" name="timeline">
+            <option value="" disabled selected>Select one...</option>
+            <option>Within 2 months</option><option>2 – 4 months</option>
+            <option>No rush</option><option>Just browsing for now</option>
+          </select>
+        </div>
+
+        <div class="fg">
+          <label for="istory">What does this piece mean to you?</label>
+          <textarea id="istory" name="story" placeholder="A milestone, a memory, a secret message…" required></textarea>
+        </div>
+
+        <button type="submit" class="btn" id="btn-submit">Begin the Conversation</button>
+        <p id="form-err">Something went wrong. Please try again or reach me on WhatsApp.</p>
+      </form>
+
+      <div id="conf">
+        <h2>Received.</h2>
+        <div class="crule"></div>
+        <p>I will be in touch within 24 hours, usually sooner. If nothing arrives, check your spam or reach me directly on WhatsApp at <strong>[your number]</strong>.</p>
+      </div>
     </div>
   </div>
 
-  <div class="contact-form" id="contact-form">
-    <p class="form-intro">Leave your details and I'll be in touch within 24 hours.</p>
-    <div class="field">
-      <label for="f-name">Name</label>
-      <input id="f-name" type="text" autocomplete="name" />
-    </div>
-    <div class="field">
-      <label for="f-email">Email</label>
-      <input id="f-email" type="email" autocomplete="email" />
-    </div>
-    <div class="field">
-      <label for="f-whatsapp">WhatsApp <span style="font-style:italic;text-transform:none;letter-spacing:0;font-size:11px;">(optional)</span></label>
-      <input id="f-whatsapp" type="tel" autocomplete="tel" />
-    </div>
-    <button class="btn-submit" id="btn-submit">Submit</button>
-    <p class="form-err" id="form-err"></p>
-  </div>
-
-  <div class="thankyou" id="thankyou">
-    <p>Your piece is now in motion. Expect to hear from me within 24 hours.</p>
-  </div>
-
+  <footer>
+    <p>JOIER &nbsp;&middot;&nbsp; joier.art &nbsp;&middot;&nbsp; Bespoke Fine Jewelry &nbsp;&middot;&nbsp; Manila</p>
+  </footer>
 </div>
+
 <script>
-  const WORKER_URL  = 'https://joier-wm.onrender.com';
-  const WEBHOOK_URL = 'https://hook.us2.make.com/zqr8zqoxljg6tk7k5d6j448pel1d8qy7';
+/* ── Theme switcher ─────────────────────────────────────────── */
+var themeColors = {
+  light:  [0.941, 0.953, 0.949],
+  greige: [0.831, 0.816, 0.769],
+  dark:   [0.035, 0.043, 0.071]
+};
+var themeIntensity = { light: 0.55, greige: 0.68, dark: 0.90 };
+var currentTheme = 'light';
 
-  const CLOSING = "I have what I need. I'll be in touch within 24 hours.";
-
-  let messages  = [];
-  let turnCount = 0;
-  let locked    = false;
-
-  const thread      = document.getElementById('thread');
-  const typing      = document.getElementById('typing');
-  const inputArea   = document.getElementById('input-area');
-  const input       = document.getElementById('input');
-  const btnSend     = document.getElementById('btn-send');
-  const contactForm = document.getElementById('contact-form');
-  const btnSubmit   = document.getElementById('btn-submit');
-  const formErr     = document.getElementById('form-err');
-  const thankyou    = document.getElementById('thankyou');
-
-  input.addEventListener('input', () => {
-    input.style.height = 'auto';
-    input.style.height = input.scrollHeight + 'px';
+document.querySelectorAll('.tw').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var t = this.dataset.theme;
+    document.body.className = t;
+    document.querySelectorAll('.tw').forEach(function(b){ b.classList.remove('active'); });
+    this.classList.add('active');
+    currentTheme = t;
   });
+});
 
-  input.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
-      e.preventDefault();
-      send();
-    }
+/* ── WebGL animated background ──────────────────────────────── */
+(function() {
+  var canvas = document.getElementById('bg');
+  var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) { canvas.style.display = 'none'; return; }
+
+  var VS = 'attribute vec2 p; void main(){gl_Position=vec4(p,0,1);}';
+  var FS = [
+    'precision mediump float;',
+    'uniform float u_time, u_intensity;',
+    'uniform vec2  u_res;',
+    'uniform vec3  u_bg;',
+    'vec3 pal(float t){',
+    '  t=mod(t,1.0); float s=t*5.0; float fi=floor(s);',
+    '  float f=fract(s); f=f*f*(3.0-2.0*f);',
+    '  vec3 c0=vec3(0.38,0.52,0.66);',
+    '  vec3 c1=vec3(0.44,0.66,0.63);',
+    '  vec3 c2=vec3(0.70,0.76,0.78);',
+    '  vec3 c3=vec3(0.24,0.40,0.57);',
+    '  vec3 c4=vec3(0.52,0.72,0.70);',
+    '  vec3 col =mix(c0,c1,f)*(1.0-step(1.0,fi));',
+    '  col+=mix(c1,c2,f)*step(1.0,fi)*(1.0-step(2.0,fi));',
+    '  col+=mix(c2,c3,f)*step(2.0,fi)*(1.0-step(3.0,fi));',
+    '  col+=mix(c3,c4,f)*step(3.0,fi)*(1.0-step(4.0,fi));',
+    '  col+=mix(c4,c0,f)*step(4.0,fi);',
+    '  return col;}',
+    'void main(){',
+    '  vec2 uv=gl_FragCoord.xy/u_res;',
+    '  float asp=u_res.x/u_res.y;',
+    '  uv.x*=asp; uv.y=1.0-uv.y;',
+    '  float T=u_time*0.14;',
+    '  vec2 ori=vec2(asp*1.07,-0.04);',
+    '  vec2 d=uv-ori; float dist=length(d); float angle=atan(d.y,d.x);',
+    '  float v=(angle/6.28318)+T*0.36+sin(angle*3.2+T*1.3)*0.10+sin(dist*4.8-T*2.0)*0.06;',
+    '  vec3 col=pal(v);',
+    '  col*=0.82+0.18*sin(dist*6.5-T*2.4);',
+    '  float cov=smoothstep(1.85,0.10,dist); cov=pow(cov,1.20);',
+    '  gl_FragColor=vec4(mix(u_bg,col,cov*u_intensity),1.0);}',
+  ].join('\n');
+
+  function sh(type, src) { var s=gl.createShader(type); gl.shaderSource(s,src); gl.compileShader(s); return s; }
+  var prog = gl.createProgram();
+  gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS));
+  gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS));
+  gl.linkProgram(prog); gl.useProgram(prog);
+
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+  var aP = gl.getAttribLocation(prog,'p');
+  gl.enableVertexAttribArray(aP); gl.vertexAttribPointer(aP,2,gl.FLOAT,false,0,0);
+
+  var uTime=gl.getUniformLocation(prog,'u_time'), uRes=gl.getUniformLocation(prog,'u_res'),
+      uBg=gl.getUniformLocation(prog,'u_bg'),     uInt=gl.getUniformLocation(prog,'u_intensity');
+
+  function resize() {
+    canvas.width=window.innerWidth; canvas.height=window.innerHeight;
+    gl.viewport(0,0,canvas.width,canvas.height);
+    gl.uniform2f(uRes,canvas.width,canvas.height);
+  }
+  window.addEventListener('resize', resize); resize();
+
+  var start = performance.now();
+  (function frame() {
+    var bg=themeColors[currentTheme];
+    gl.uniform3f(uBg,bg[0],bg[1],bg[2]);
+    gl.uniform1f(uInt,themeIntensity[currentTheme]);
+    gl.uniform1f(uTime,(performance.now()-start)*0.001);
+    gl.drawArrays(gl.TRIANGLES,0,6);
+    requestAnimationFrame(frame);
+  })();
+})();
+
+/* ── Form submission — Supabase Edge Function ───────────────── */
+document.getElementById('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var f    = this;
+  var btn  = document.getElementById('btn-submit');
+  var err  = document.getElementById('form-err');
+  btn.disabled = true;
+  err.style.display = 'none';
+
+  var payload = {
+    name:       f.name.value.trim(),
+    email:      f.email.value.trim(),
+    piece_type: f.piece_type.value,
+    metal:      f.metal.value,
+    budget:     f.budget.value,
+    timeline:   f.timeline.value,
+    story:      f.story.value.trim(),
+    source:     'joier.art/start'
+  };
+
+  fetch('https://ifcpzzfazihcjxqnacsg.supabase.co/functions/v1/submit-commission', {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify(payload)
+  })
+  .then(function(res) {
+    if (!res.ok) throw new Error('server error');
+    f.style.display = 'none';
+    var c = document.getElementById('conf');
+    c.classList.add('on');
+    c.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  })
+  .catch(function() {
+    btn.disabled = false;
+    err.style.display = 'block';
   });
-
-  btnSend.addEventListener('click', send);
-
-  function addMessage(type, text) {
-    const el = document.createElement('p');
-    el.className = `message msg-${type}`;
-    el.textContent = text;
-    thread.appendChild(el);
-    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    return el;
-  }
-
-  function wait(ms) {
-    return new Promise(r => setTimeout(r, ms));
-  }
-
-  async function send() {
-    if (locked) return;
-    const text = input.value.trim();
-    if (!text) return;
-
-    locked = true;
-    btnSend.disabled = true;
-    input.disabled = true;
-
-    addMessage('user', text);
-    messages.push({ role: 'user', content: text });
-    input.value = '';
-    input.style.height = 'auto';
-
-    typing.classList.add('on');
-    typing.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-    let data;
-    try {
-      const res = await fetch(`${WORKER_URL}/chat`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages, turnCount }),
-      });
-      if (!res.ok) throw new Error(res.status);
-      data = await res.json();
-    } catch {
-      typing.classList.remove('on');
-      const err = addMessage('assistant', 'Something went wrong. Please try again.');
-      err.style.color = '#a03535';
-      locked = false;
-      btnSend.disabled = false;
-      input.disabled = false;
-      await wait(4000);
-      err.remove();
-      return;
-    }
-
-    typing.classList.remove('on');
-    addMessage('assistant', data.content);
-    messages.push({ role: 'assistant', content: data.content });
-    turnCount = data.turnCount;
-
-    if (data.done) {
-      inputArea.classList.add('gone');
-      await wait(900);
-      addMessage('closing', CLOSING);
-      messages.push({ role: 'assistant', content: CLOSING });
-      await wait(700);
-      contactForm.classList.add('on');
-      contactForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      locked = false;
-      btnSend.disabled = false;
-      input.disabled = false;
-      input.focus();
-    }
-  }
-
-  btnSubmit.addEventListener('click', async () => {
-    formErr.classList.remove('on');
-
-    const name     = document.getElementById('f-name').value.trim();
-    const email    = document.getElementById('f-email').value.trim();
-    const whatsapp = document.getElementById('f-whatsapp').value.trim();
-
-    if (!name || !email) {
-      formErr.textContent = 'Name and email are required.';
-      formErr.classList.add('on');
-      return;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      formErr.textContent = 'Please enter a valid email address.';
-      formErr.classList.add('on');
-      return;
-    }
-
-    btnSubmit.disabled = true;
-    btnSubmit.textContent = 'Sending...';
-
-    const transcriptText = messages
-      .map(m => (m.role === 'user' ? 'Client' : 'Walter') + ': ' + m.content)
-      .join('\n\n');
-
-    const payload = {
-      name:           name,
-      contact_type:   'Email',
-      contact_handle: email,
-      piece_type:     'AI Commission Inquiry',
-      metal_pref:     '',
-      budget:         '',
-      message:        transcriptText,
-      whatsapp:       whatsapp || '',
-      timestamp:      new Date().toISOString(),
-    };
-
-    try {
-      const res = await fetch(WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error(res.status);
-    } catch {
-      formErr.textContent = 'Submission failed. Please try again.';
-      formErr.classList.add('on');
-      btnSubmit.disabled = false;
-      btnSubmit.textContent = 'Submit';
-      return;
-    }
-
-    contactForm.classList.remove('on');
-    thankyou.classList.add('on');
-    thankyou.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
+});
 </script>
 </body>
 </html>
