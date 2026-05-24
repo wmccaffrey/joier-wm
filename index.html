@@ -74,7 +74,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="joier-images/pendants/PE076.jpg" fetchpriority="high" />
   <style>
     /* ─── RESET & BASE ─────────────────────────────────────── */
@@ -513,99 +513,210 @@
 
     /* ─── CONSULTATION FORM ─────────────────────────────────── */
     #consult {
-      background: var(--bg-2);
-      border-left: 4px solid #dc2626;
-      box-shadow: inset 0 0 40px rgba(220, 38, 38, 0.15);
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
     }
-
+    #consult-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0; display: block;
+    }
     .consult-wrap {
+      position: relative; z-index: 1;
       display: grid;
       grid-template-columns: 1fr 1.2fr;
       gap: 6rem;
       align-items: start;
     }
 
-    .form-group {
-      margin-bottom: 1.75rem;
+    /* ── scoped commission form styles ── */
+    .cf-card {
+      background: rgba(7,9,16,0.62);
+      backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
+      padding: 48px 40px;
     }
-
-    label {
+    :root.theme-light .cf-card, :root.theme-jade .cf-card {
+      background: rgba(255,255,255,0.52);
+      border-color: rgba(0,0,0,0.08);
+    }
+    .cf-card .cf-intro {
+      font-family: var(--ff-serif);
+      font-size: 1.35rem; font-weight: 400;
+      color: var(--gold); margin-bottom: 28px;
+    }
+    .cf-fg { margin-bottom: 20px; }
+    .cf-fg label {
       display: block;
-      font-size: 0.58rem;
-      letter-spacing: 0.25em;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.60rem; letter-spacing: 2.5px;
       text-transform: uppercase;
-      color: var(--gold-dim);
-      margin-bottom: 0.6rem;
+      color: rgba(201,169,110,0.65);
+      margin-bottom: 7px; font-weight: 400;
     }
-
-    input, select, textarea {
+    :root.theme-light .cf-fg label, :root.theme-jade .cf-fg label {
+      color: rgba(140,113,72,0.75);
+    }
+    .cf-fg input, .cf-fg select, .cf-fg textarea {
       width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid var(--border);
-      padding: 0.75rem 0;
-      font-family: var(--ff-sans);
-      font-size: 0.78rem;
-      font-weight: 300;
-      color: var(--text);
-      letter-spacing: 0.05em;
+      background: rgba(4,5,12,0.72);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem; font-weight: 300;
+      color: #E8E4DC;
       outline: none;
-      transition: border-color 0.3s;
-      -webkit-appearance: none;
-      appearance: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      -webkit-appearance: none; appearance: none;
+      letter-spacing: 0.02em;
     }
-    input:focus, select:focus, textarea:focus {
-      border-color: #dc2626;
+    :root.theme-light .cf-fg input,
+    :root.theme-light .cf-fg select,
+    :root.theme-light .cf-fg textarea,
+    :root.theme-jade .cf-fg input,
+    :root.theme-jade .cf-fg select,
+    :root.theme-jade .cf-fg textarea {
+      background: rgba(255,255,255,0.80);
+      border-color: rgba(0,0,0,0.10);
+      color: #1C2222;
     }
-    input::placeholder, textarea::placeholder {
-      color: var(--text-muted);
+    .cf-fg input::placeholder, .cf-fg textarea::placeholder { color: rgba(232,228,220,0.35); }
+    :root.theme-light .cf-fg input::placeholder,
+    :root.theme-light .cf-fg textarea::placeholder,
+    :root.theme-jade .cf-fg input::placeholder,
+    :root.theme-jade .cf-fg textarea::placeholder { color: rgba(28,34,34,0.35); }
+    .cf-fg select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%23C9A55A' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center;
+      padding-right: 38px; cursor: pointer;
     }
-    select option {
-      background: var(--select-bg);
-      color: var(--text);
+    .cf-fg select option { background: #0a0a0a; color: #E8E4DC; }
+    :root.theme-light .cf-fg select option,
+    :root.theme-jade .cf-fg select option { background: #fff; color: #1C2222; }
+    .cf-fg input:focus, .cf-fg select:focus, .cf-fg textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,169,110,0.12);
     }
-    textarea {
-      resize: none;
-      height: 120px;
+    .cf-fg textarea { resize: vertical; min-height: 110px; line-height: 1.70; }
+    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cf-btn {
+      position: relative; overflow: hidden; width: 100%;
+      background: #E06455; color: #fff; border: none; border-radius: 8px;
+      padding: 16px 32px; font-size: 0.72rem; letter-spacing: 3.5px;
+      text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 500;
+      cursor: pointer; margin-top: 8px;
+      transition: filter 0.25s, box-shadow 0.3s, transform 0.15s;
     }
-
-    /* contact-type radio pills */
-    .contact-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border);
+    .cf-btn::after {
+      content: ''; position: absolute; top: 0; left: -100%;
+      width: 55%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      transform: skewX(-20deg); transition: left 0.6s ease;
     }
-    .contact-pills input[type="radio"] { display: none; }
-    .contact-pills label {
-      margin: 0;
-      padding: 0.4rem 1rem;
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: border-color 0.3s, color 0.3s, background 0.3s;
-      text-transform: uppercase;
+    .cf-btn:hover { filter: brightness(1.08); box-shadow: 0 10px 36px rgba(0,0,0,0.22); transform: translateY(-2px); }
+    .cf-btn:hover::after { left: 160%; }
+    .cf-btn:active { transform: translateY(0); }
+    .cf-btn:disabled { opacity: 0.55; cursor: default; transform: none; }
+    .cf-err { display: none; font-size: 0.78rem; color: #FF6B5A; margin-top: 10px; text-align: center; font-family: 'Inter', sans-serif; }
+    .cf-success {
+      display: none; text-align: center; padding: 48px 16px 8px;
     }
-    .contact-pills input[type="radio"]:checked + label {
-      border-color: #dc2626;
-      color: #dc2626;
-      background: rgba(220, 38, 38, 0.08);
+    .cf-success.show { display: block; }
+    .cf-success h3 {
+      font-family: var(--ff-serif); font-size: 2.6rem; font-weight: 300;
+      color: var(--gold); letter-spacing: 0.05em;
     }
-    .contact-pills label:hover {
-      border-color: var(--gold-dim);
-      color: var(--text);
+    .cf-success-rule { width: 36px; height: 1px; background: #E06455; margin: 22px auto; }
+    .cf-success p { font-size: 0.88rem; color: var(--text-muted); max-width: 440px; margin: 0 auto 12px; line-height: 1.85; font-family: 'Inter', sans-serif; font-weight: 300; }
+    .cf-ref-box {
+      margin: 24px auto 0; padding: 16px 28px;
+      border: 1px solid var(--gold); display: inline-block;
     }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
+    .cf-ref-label { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 6px; font-family: 'Inter', sans-serif; }
+    .cf-ref-num { font-family: var(--ff-serif); font-size: 2rem; font-weight: 300; color: var(--gold); letter-spacing: 0.2em; }
+    .cf-ref-note { font-size: 0.60rem; color: var(--text-muted); margin-top: 6px; font-family: 'Inter', sans-serif; }
 
     /* ─── ORDER TRACKER ─────────────────────────────────────── */
+    /* ─── THE VAULT ─────────────────────────────────────────── */
+    #vault {
+      background: var(--bg-2);
+      text-align: center;
+    }
+    .vault-inner {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .vault-coming-soon {
+      display: inline-block;
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      border: 1px solid var(--border);
+      padding: 0.4rem 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .vault-rule {
+      width: 36px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold) 40%, var(--gold) 60%, transparent);
+      margin: 2rem auto;
+    }
+    .vault-body {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.95;
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
+    .vault-body em {
+      font-family: var(--ff-serif);
+      font-style: italic;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .vault-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 3rem;
+    }
+    .vault-card {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--bg-3);
+    }
+    .vault-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s ease;
+      filter: brightness(0.88);
+    }
+    .vault-card:hover img { transform: scale(1.06); filter: brightness(1); }
+    .vault-card-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.5rem 1rem 0.6rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.72));
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .vault-card:hover .vault-card-label { opacity: 1; }
+    @media (max-width: 900px) { .vault-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 600px) { .vault-grid { grid-template-columns: repeat(2, 1fr); } }
+
     /* ─── FOOTER ────────────────────────────────────────────── */
     footer {
       background: var(--bg-2);
@@ -1097,8 +1208,12 @@
 
       /* Form */
       .form-row { grid-template-columns: 1fr; }
-      input, select, textarea { padding: 1rem 0; font-size: 0.85rem; }
+      /* 16px minimum prevents iOS Safari auto-zoom on input focus */
+      input, select, textarea { padding: 1rem 0; font-size: 16px; }
       .contact-pills label { padding: 0.5rem 0.85rem; }
+
+      /* Section body text — legible on small screens */
+      .section-body { font-size: 0.82rem; }
 
 
       /* Footer */
@@ -1136,9 +1251,6 @@
     .theme-btn:hover { border-color: var(--gold); transform: scale(1.15); }
     .theme-btn.active { border-color: var(--gold); background: rgba(201,169,110,0.15); }
   </style>
-
-  <!-- Counter.dev Analytics -->
-  <script src="https://cdn.counter.dev/script.js" data-id="73a452aa-5de8-445d-9870-92ae0a5f5b0d" data-utcoffset="8"></script>
 </head>
 <body>
 
@@ -1251,12 +1363,13 @@
   <!-- ═══════════════════════════════════════════════════════ GALLERY -->
   <section id="gallery">
     <div style="max-width:600px; margin-bottom:4rem;" class="reveal">
-      <p class="section-label">Portfolio</p>
+      <p class="section-label">The Work</p>
       <h2 class="section-title">Browse by Collection</h2>
       <div class="gold-rule"></div>
       <p class="section-body">
         Browse the full portfolio, from the KROMA enamel signet series to bespoke commissions,
         sculptural earrings, and one-of-a-kind private works. Click any collection to explore.
+        If something catches your eye, note the piece number — bring it to your commission and we'll start from there.
       </p>
     </div>
     <div class="gallery-grid">
@@ -1329,9 +1442,29 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════════ THE VAULT -->
+  <section id="vault">
+    <div class="vault-inner reveal">
+      <p class="section-label">The Vault</p>
+      <h2 class="section-title">Designed. Never Made.</h2>
+      <div class="vault-rule"></div>
+      <p class="vault-body">
+        Every piece begins as a study. These are the ones that never made it to metal —
+        fully realized, printed, and waiting.
+        <em>Pick one. Choose your metal. It becomes yours.</em>
+      </p>
+      <p class="vault-body" style="font-size:0.75rem; margin-bottom:2rem;">
+        See something? Note the piece number and mention it when you begin your commission.
+      </p>
+      <a href="javascript:void(0)" onclick="openVault('VA001')" class="btn">Enter The Vault</a>
+    </div>
+  </section>
+
   <!-- ═══════════════════════════════════════════════════════ CONSULT FORM -->
   <section id="consult">
+    <canvas id="consult-canvas"></canvas>
     <div class="consult-wrap">
+
       <div>
         <p class="section-label reveal">Private Commissions</p>
         <h2 class="section-title reveal reveal-delay-1">
@@ -1339,15 +1472,13 @@
         </h2>
         <div class="gold-rule reveal reveal-delay-2"></div>
         <p class="section-body reveal reveal-delay-2">
-          Every JOIER piece begins with a conversation. Share your vision,
-          or simply share your instinct, and Walter will develop a design
-          study tailored to you.
+          Every piece begins here, with a few details and one honest conversation.
         </p>
         <p class="section-body reveal reveal-delay-3" style="margin-top:1.25rem;">
-          Commissions typically begin at ₱35,000, with most pieces in gold starting higher.
-          Each brief is reviewed personally, with a response within 24–48 hours.
-          First design direction is typically ready 2–3 weeks after approval.
-          No commitment required until you're confident in the direction.
+          For ₱3,000 — credited in full toward your finished piece — I design your jewelry and send you detailed CAD studies: the proposed form, the materials, and the finished look, before anything is cast or carved. A production quote is included.
+        </p>
+        <p class="section-body reveal reveal-delay-3" style="margin-top:1rem;">
+          When the design feels right, two paths are open. Commission the piece and the ₱3,000 is credited toward your final price. Or keep the design package as-is — the renders, materials study, and production notes are yours, with no further obligation.
         </p>
         <div style="margin-top:3rem;" class="reveal reveal-delay-4">
           <p style="font-size:0.6rem; letter-spacing:0.2em; color:var(--gold-dim); margin-bottom:0.75rem;">FOLLOW THE WORK</p>
@@ -1362,111 +1493,102 @@
         </div>
       </div>
 
-      <div>
-        <form id="consultForm" onsubmit="submitConsult(event)">
+      <div class="cf-card">
+        <div class="cf-intro">A few details to begin.</div>
 
-          <!-- Honeypot: hidden from real users, filled by bots -->
+        <form id="consultForm">
           <div style="position:absolute;left:-9999px;height:0;overflow:hidden;" aria-hidden="true">
-            <input type="text" name="company" id="company" tabindex="-1" autocomplete="off" />
+            <input type="text" name="company" tabindex="-1" autocomplete="off" />
           </div>
 
-          <div class="form-group">
-            <label for="fname">Your Name</label>
-            <input type="text" id="fname" name="name" placeholder="Your name" required />
-          </div>
-
-          <div class="form-group">
-            <label>Preferred Contact</label>
-            <div class="contact-pills">
-              <input type="radio" name="contact_type" id="ct-wa" value="WhatsApp" />
-              <label for="ct-wa">WhatsApp</label>
-              <input type="radio" name="contact_type" id="ct-ig" value="Instagram DM" />
-              <label for="ct-ig">Instagram DM</label>
-              <input type="radio" name="contact_type" id="ct-vb" value="Viber" />
-              <label for="ct-vb">Viber</label>
-              <input type="radio" name="contact_type" id="ct-sms" value="SMS" />
-              <label for="ct-sms">SMS</label>
-              <input type="radio" name="contact_type" id="ct-em" value="Email" />
-              <label for="ct-em">Email</label>
+          <div class="cf-row">
+            <div class="cf-fg">
+              <label for="cf-name">Your name</label>
+              <input type="text" id="cf-name" name="name" placeholder="First name is enough" required autocomplete="name">
+            </div>
+            <div class="cf-fg">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email" placeholder="I'll reply here personally" required autocomplete="email">
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="contact_handle">Handle / Number / Email</label>
-            <input type="text" id="contact_handle" name="contact_handle" placeholder="@username, +63 xxx, or email" required />
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="piece_type">Piece Type</label>
-              <select id="piece_type" name="piece_type">
-                <option value="" disabled selected>Select type</option>
-                <option value="Pendant">Pendant</option>
-                <option value="Signet Ring">Signet Ring</option>
-                <option value="Enamel Ring">Enamel Ring</option>
-                <option value="Engagement Ring">Engagement Ring</option>
-                <option value="Band">Band</option>
-                <option value="Earrings">Earrings</option>
-                <option value="Bracelet">Bracelet</option>
-                <option value="Brooch">Brooch</option>
-                <option value="Other">Other / Let's Talk</option>
+          <div class="cf-row">
+            <div class="cf-fg">
+              <label for="cf-contact-type">Best way to reach you</label>
+              <select id="cf-contact-type" name="contact_type" required>
+                <option value="" disabled selected>Select one...</option>
+                <option>WhatsApp</option>
+                <option>Viber</option>
+                <option>SMS</option>
+                <option>Email</option>
               </select>
             </div>
-            <div class="form-group">
-              <label for="metal_pref">Metal Preference</label>
-              <select id="metal_pref" name="metal_pref">
-                <option value="" disabled selected>Select metal</option>
-                <option value="18k Yellow">18K Yellow Gold</option>
-                <option value="18k White">18K White Gold</option>
-                <option value="18k Rose">18K Rose Gold</option>
-                <option value="14k Yellow">14K Yellow Gold</option>
-                <option value="14k White">14K White Gold</option>
-                <option value="Gold Plated Silver">Gold Plated Silver</option>
-                <option value="Sterling Silver">Sterling Silver</option>
-                <option value="Platinum">Platinum</option>
-                <option value="Undecided">Undecided</option>
-              </select>
+            <div class="cf-fg">
+              <label for="cf-handle">Your number or handle</label>
+              <input type="text" id="cf-handle" name="contact_handle" placeholder="+63 xxx or @username" required autocomplete="tel">
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="budget">Budget Range</label>
-            <select id="budget" name="budget">
-              <option value="" disabled selected>Select a range</option>
-              <option value="35k-50k PHP">₱35,000 – ₱50,000</option>
-              <option value="50k-100k PHP">₱50,000 – ₱100,000</option>
-              <option value="100k-250k PHP">₱100,000 – ₱250,000</option>
-              <option value="250k+ PHP">₱250,000+</option>
-              <option value="Prefer to discuss">Prefer to discuss</option>
+          <div class="cf-fg">
+            <label for="cf-piece">What are you looking to create?</label>
+            <select id="cf-piece" name="piece_type" required>
+              <option value="" disabled selected>Select one...</option>
+              <option>Ring</option>
+              <option>Earrings</option>
+              <option>Bracelet / Cuff</option>
+              <option>Necklace / Pendant</option>
+              <option>Other</option>
             </select>
           </div>
 
-          <div class="form-group">
-            <label for="message">Your Vision</label>
-            <textarea id="message" name="message" placeholder="Describe your piece: inspiration, occasion, stones, or simply a feeling..."></textarea>
+          <div class="cf-row">
+            <div class="cf-fg">
+              <label for="cf-metal">Metal preference</label>
+              <select id="cf-metal" name="metal_pref" required>
+                <option value="" disabled selected>Select one...</option>
+                <option>18K Yellow Gold</option>
+                <option>18K White Gold</option>
+                <option>18K Rose Gold</option>
+                <option>14K Yellow Gold</option>
+                <option>14K White Gold</option>
+                <option>14K Rose Gold</option>
+                <option>Sterling Silver</option>
+                <option>Not sure — let's discuss</option>
+              </select>
+            </div>
+            <div class="cf-fg">
+              <label for="cf-budget">Budget range</label>
+              <select id="cf-budget" name="budget" required>
+                <option value="" disabled selected>Select one...</option>
+                <option>₱35,000 – ₱70,000 (~$600 – $1,200)</option>
+                <option>₱70,000 – ₱140,000 (~$1,200 – $2,400)</option>
+                <option>₱140,000 – ₱280,000 (~$2,400 – $4,800)</option>
+                <option>₱280,000+ (~$4,800+)</option>
+              </select>
+            </div>
           </div>
 
-          <p style="font-size:0.58rem; color:var(--text-muted); letter-spacing:0.1em; margin-bottom:1.5rem; line-height:1.8;">
-            Have reference images or sketches? Email them to <span style="color:var(--gold);">joier.mnl@gmail.com</span>
-          </p>
+          <div class="cf-fg">
+            <label for="cf-message">What does this piece mean to you?</label>
+            <textarea id="cf-message" name="message" placeholder="A milestone, a memory, a secret message…" required></textarea>
+          </div>
 
-          <button type="submit" class="btn btn-solid" style="width:100%; text-align:center; margin-top:0.5rem; background:#dc2626; border-color:#dc2626; box-shadow:0 4px 20px rgba(220,38,38,0.3);">
-            Begin Your Commission
-          </button>
+          <button type="submit" class="cf-btn" id="cf-submit">Begin the Conversation</button>
+          <p class="cf-err" id="cf-err">Something went wrong. Please try again or reach me on WhatsApp.</p>
         </form>
 
-        <div class="form-success" id="formSuccess">
-          <div style="width:40px;height:1px;background:var(--gold);margin:0 auto 2rem;"></div>
-          <h3>Thank You</h3>
-          <p>Your commission request has been received.<br />Walter will reach out through your preferred channel within 24–48 hours.</p>
-          <div style="margin:2rem auto; padding:1.5rem 2rem; border:1px solid var(--gold); display:inline-block;">
-            <p style="font-size:0.58rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:0.5rem;">Your Reference Number</p>
-            <p id="confirmedOrderId" style="font-family:var(--ff-serif); font-size:2rem; font-weight:300; color:var(--gold); letter-spacing:0.2em;"></p>
-            <p style="font-size:0.58rem; letter-spacing:0.1em; color:var(--text-muted); margin-top:0.5rem;">Keep this for your records. Walter will reach out directly with next steps.</p>
+        <div class="cf-success" id="cf-success">
+          <h3>Received.</h3>
+          <div class="cf-success-rule"></div>
+          <p>I will be in touch within 24 hours, usually sooner.</p>
+          <div class="cf-ref-box" id="cf-ref-box" style="display:none;">
+            <p class="cf-ref-label">Your Reference</p>
+            <p class="cf-ref-num" id="cf-ref-num"></p>
+            <p class="cf-ref-note">Keep this for your records.</p>
           </div>
-          <div style="width:40px;height:1px;background:var(--gold);margin:2rem auto 0;"></div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1474,10 +1596,10 @@
   <section id="after-commission">
     <div style="max-width:580px;" class="reveal">
       <p class="section-label">After Your Commission</p>
-      <h2 class="section-title reveal reveal-delay-1">After Your<br /><em style="font-family:var(--ff-serif); font-style:italic;">Commission</em></h2>
+      <h2 class="section-title reveal reveal-delay-1">The piece is yours<br /><em style="font-family:var(--ff-serif); font-style:italic;">from the first sketch.</em></h2>
       <div class="gold-rule reveal reveal-delay-2"></div>
       <p class="section-body reveal reveal-delay-2">
-        Once your commission is confirmed, you will receive updates directly through your chosen contact method. Each piece is handled personally, no automated tracking, no generic timelines.
+        Every update comes directly from Walter, through the contact method you chose. No automated messages. No generic timelines. You will always know where your piece is.
       </p>
     </div>
   </section>
@@ -1488,8 +1610,8 @@
       <div>
         <div class="footer-brand">JOIER</div>
         <p class="footer-tagline">
-          Private fine jewelry atelier. Bespoke commissions, enamel signets,
-          and sculptural pieces, designed and made by Walter McCaffrey.
+          Not a brand. A designer. Private commissions, enamel signets,
+          and sculptural pieces, designed and made in Manila.
         </p>
         <div class="footer-social" style="margin-top:1.75rem;">
           <a href="https://instagram.com/joier_jewelry" target="_blank" class="social-pill">
@@ -1526,8 +1648,8 @@
         <h5>Connect</h5>
         <ul>
           <li><a href="https://instagram.com/joier_jewelry" target="_blank">Instagram</a></li>
-          <li><a href="#consult">WhatsApp</a></li>
-          <li><a href="#consult">Viber</a></li>
+          <li><a href="https://wa.me/639173116143" target="_blank">WhatsApp</a></li>
+          <li><a href="viber://chat?number=639173116143">Viber</a></li>
           <li><a href="mailto:joier.mnl@gmail.com">Email</a></li>
         </ul>
       </div>
@@ -1612,7 +1734,6 @@ const collectionsData = {
       monogram: {
         title: 'Classic Monograms',
         images: [
-          { src: 'joier-images/monograms/MO043.jpg', label: 'MO043' },
           { src: 'joier-images/monograms/MO044.jpg', label: 'MO044' },
           { src: 'joier-images/monograms/MO048.jpg', label: 'MO048' },
           { src: 'joier-images/monograms/MO045.jpg', label: 'MO045' },
@@ -1680,6 +1801,9 @@ const collectionsData = {
       pendants: {
         title: 'Pendants',
         images: [
+          { src: 'joier-images/rings/KR041-kroma-with-pendant.jpg', label: 'KR041' },
+          { src: 'joier-images/rings/KR042-kroma-with-pendant.jpg', label: 'KR042' },
+          { src: 'joier-images/rings/KR043-kroma-with-pendant.jpg', label: 'KR043' },
           { src: 'joier-images/pendants/PE087.jpg', label: 'PE087' },
           { src: 'joier-images/pendants/PE088.jpg', label: 'PE088' },
           { src: 'joier-images/pendants/PE089.jpg', label: 'PE089' },
@@ -1689,7 +1813,6 @@ const collectionsData = {
           { src: 'joier-images/pendants/PE093.jpg', label: 'PE093' },
           { src: 'joier-images/pendants/PE094.jpg', label: 'PE094' },
           { src: 'joier-images/pendants/PE095.jpg', label: 'PE095' },
-          { src: 'joier-images/pendants/PE096.jpg', label: 'PE096' },
           { src: 'joier-images/pendants/PE097.jpg', label: 'PE097' },
           { src: 'joier-images/pendants/PE098.jpg', label: 'PE098' },
           { src: 'joier-images/pendants/PE099.jpg', label: 'PE099' },
@@ -1820,9 +1943,6 @@ const collectionsData = {
           { src: 'joier-images/rings/KR036-kroma-h-signet-ring.jpg', label: 'KR036-kroma-h-signet-ring' },
           { src: 'joier-images/rings/KR038-kroma-split-ring-enamel.jpg', label: 'KR038-kroma-split-ring-enamel' },
           { src: 'joier-images/kroma/KR010.jpg', label: 'KR010' },
-          { src: 'joier-images/rings/KR041-kroma-with-pendant.jpg', label: 'KR041-kroma-with-pendant' },
-          { src: 'joier-images/rings/KR042-kroma-with-pendant.jpg', label: 'KR042-kroma-with-pendant' },
-          { src: 'joier-images/rings/KR043-kroma-with-pendant.jpg', label: 'KR043-kroma-with-pendant' },
           { src: 'joier-images/rings/RI097.jpg', label: 'RI097' },
           { src: 'joier-images/rings/RI058.jpg', label: 'RI058' },
           { src: 'joier-images/rings/RI059.jpg', label: 'RI059' },
@@ -1889,9 +2009,6 @@ const collectionsData = {
           { src: 'joier-images/rings/RI158.jpg', label: 'RI158' },
           { src: 'joier-images/rings/RI061.jpg', label: 'RI061' },
           { src: 'joier-images/rings/RI062.jpg', label: 'RI062' },
-          { src: 'joier-images/rings/RI063.jpg', label: 'RI063' },
-          { src: 'joier-images/rings/RI064.jpg', label: 'RI064' },
-          { src: 'joier-images/rings/RI065.jpg', label: 'RI065' },
           { src: 'joier-images/rings/RI066.jpg', label: 'RI066' },
           { src: 'joier-images/rings/RI067.jpg', label: 'RI067' },
           { src: 'joier-images/rings/RI068.jpg', label: 'RI068' },
@@ -1915,8 +2032,6 @@ const collectionsData = {
           { src: 'joier-images/rings/RI169.jpg', label: 'RI169' },
           { src: 'joier-images/rings/RI170.jpg', label: 'RI170' },
           { src: 'JOIER_Photos/rings/RI004.jpg', label: 'RI004' },
-          { src: 'JOIER_Photos/rings/RI005.jpg', label: 'RI005' },
-          { src: 'JOIER_Photos/rings/RI006.jpg', label: 'RI006' },
           { src: 'JOIER_Photos/rings/RI007.jpg', label: 'RI007' },
           { src: 'JOIER_Photos/rings/RI008.jpg', label: 'RI008' },
           { src: 'JOIER_Photos/rings/RI009.jpg', label: 'RI009' },
@@ -2048,8 +2163,10 @@ const collectionsData = {
 
     /* ── Lightbox Logic ── */
     let lbCollection = null, lbIndex = 0;
+    var lbMode = 'collection'; // 'collection' or 'vault'
 
     function openLightbox(key) {
+      lbMode = 'collection';
       lbCollection = collectionsData[key];
       lbIndex = 0;
       document.getElementById('lightboxTitle').textContent = lbCollection.title;
@@ -2076,8 +2193,13 @@ const collectionsData = {
       if (active) active.scrollIntoView({ block: 'nearest', inline: 'center' });
     }
     function lightboxNav(dir) {
-      lbIndex = (lbIndex + dir + lbCollection.images.length) % lbCollection.images.length;
-      renderLightbox();
+      if (lbMode === 'vault') {
+        vaultIndex = (vaultIndex + dir + vaultImages.length) % vaultImages.length;
+        renderVault();
+      } else {
+        lbIndex = (lbIndex + dir + lbCollection.images.length) % lbCollection.images.length;
+        renderLightbox();
+      }
     }
     function lightboxGoTo(idx) { lbIndex = idx; renderLightbox(); }
     function handleLightboxClick(e) {
@@ -2116,48 +2238,145 @@ const collectionsData = {
     }, { threshold: 0.12 });
     revealEls.forEach(el => io.observe(el));
 
-    /* ── Consult form → JOIER backend ── */
-    var JOIER_ENDPOINT = 'https://ifcpzzfazihcjxqnacsg.supabase.co/functions/v1/submit-commission';
-
-    function submitConsult(e) {
-      e.preventDefault();
+    /* ── Commission form → Supabase ── */
+    (function() {
+      var ENDPOINT = 'https://ifcpzzfazihcjxqnacsg.supabase.co/functions/v1/submit-commission';
       var form = document.getElementById('consultForm');
-      var btn = form.querySelector('button[type="submit"]');
+      var btn  = document.getElementById('cf-submit');
+      var err  = document.getElementById('cf-err');
 
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        btn.disabled = true; btn.textContent = 'Sending…';
+        err.style.display = 'none';
 
-      var data = {
-        company:        form.querySelector('[name="company"]').value,
-        name:           form.querySelector('[name="name"]').value,
-        contact_type:   (form.querySelector('[name="contact_type"]:checked') || {}).value || '',
-        contact_handle: form.querySelector('[name="contact_handle"]').value,
-        piece_type:     form.querySelector('[name="piece_type"]').value,
-        metal_pref:     form.querySelector('[name="metal_pref"]').value,
-        budget:         form.querySelector('[name="budget"]').value,
-        message:        form.querySelector('[name="message"]').value
-      };
+        var data = {
+          company:        form.querySelector('[name="company"]').value,
+          name:           form.querySelector('[name="name"]').value.trim(),
+          email:          form.querySelector('[name="email"]').value.trim(),
+          contact_type:   form.querySelector('[name="contact_type"]').value,
+          contact_handle: form.querySelector('[name="contact_handle"]').value.trim(),
+          piece_type:     form.querySelector('[name="piece_type"]').value || '—',
+          metal_pref:     form.querySelector('[name="metal_pref"]').value || '—',
+          budget:         form.querySelector('[name="budget"]').value || '—',
+          message:        form.querySelector('[name="message"]').value.trim() || '—',
+          source:         'joier.art/#consult'
+        };
 
-      fetch(JOIER_ENDPOINT, {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer sb_publishable_fCyPxWGKqGXb4d72b5zR9w_2m83qeDY' }
-      }).then(function(res) {
-        return res.json().then(function(body) {
-          if (res.ok && body.order_reference) {
-            form.style.display = 'none';
-            document.getElementById('confirmedOrderId').textContent = body.order_reference;
-            document.getElementById('formSuccess').classList.add('show');
-          } else {
-            throw new Error(body.error || 'Submission failed');
+        fetch(ENDPOINT, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type':  'application/json',
+            'Authorization': 'Bearer sb_publishable_fCyPxWGKqGXb4d72b5zR9w_2m83qeDY'
           }
+        }).then(function(res) {
+          return res.text().then(function(raw) {
+            var body; try { body = JSON.parse(raw); } catch(_) { body = {}; }
+            if (res.ok) {
+              form.style.display = 'none';
+              if (body.order_reference) {
+                document.getElementById('cf-ref-num').textContent = body.order_reference;
+                document.getElementById('cf-ref-box').style.display = 'inline-block';
+              }
+              document.getElementById('cf-success').classList.add('show');
+            } else {
+              throw new Error(body.error || ('HTTP ' + res.status));
+            }
+          });
+        }).catch(function() {
+          btn.disabled = false; btn.textContent = 'Begin the Conversation';
+          err.style.display = 'block';
         });
-      }).catch(function() {
-        btn.disabled = false;
-        btn.textContent = 'Begin Your Commission';
-        alert('There was an issue submitting the form. Please DM us on Instagram @joier_jewelry instead.');
       });
-    }
+    })();
+
+    /* ── WebGL animated background — #consult section ── */
+    (function() {
+      var canvas = document.getElementById('consult-canvas');
+      var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      if (!gl) return;
+
+      var VS = 'attribute vec2 p; void main(){gl_Position=vec4(p,0,1);}';
+      var FS = [
+        'precision mediump float;',
+        'uniform float u_time, u_intensity;',
+        'uniform vec2  u_res;',
+        'uniform vec3  u_bg;',
+        'vec3 pal(float t){',
+        '  t=mod(t,1.0); float s=t*5.0; float fi=floor(s);',
+        '  float f=fract(s); f=f*f*(3.0-2.0*f);',
+        '  vec3 c0=vec3(0.38,0.52,0.66);',
+        '  vec3 c1=vec3(0.44,0.66,0.63);',
+        '  vec3 c2=vec3(0.70,0.76,0.78);',
+        '  vec3 c3=vec3(0.24,0.40,0.57);',
+        '  vec3 c4=vec3(0.52,0.72,0.70);',
+        '  vec3 col =mix(c0,c1,f)*(1.0-step(1.0,fi));',
+        '  col+=mix(c1,c2,f)*step(1.0,fi)*(1.0-step(2.0,fi));',
+        '  col+=mix(c2,c3,f)*step(2.0,fi)*(1.0-step(3.0,fi));',
+        '  col+=mix(c3,c4,f)*step(3.0,fi)*(1.0-step(4.0,fi));',
+        '  col+=mix(c4,c0,f)*step(4.0,fi);',
+        '  return col;}',
+        'void main(){',
+        '  vec2 uv=gl_FragCoord.xy/u_res;',
+        '  float asp=u_res.x/u_res.y;',
+        '  uv.x*=asp; uv.y=1.0-uv.y;',
+        '  float T=u_time*0.14;',
+        '  vec2 ori=vec2(asp*1.07,-0.04);',
+        '  vec2 d=uv-ori; float dist=length(d); float angle=atan(d.y,d.x);',
+        '  float v=(angle/6.28318)+T*0.36+sin(angle*3.2+T*1.3)*0.10+sin(dist*4.8-T*2.0)*0.06;',
+        '  vec3 col=pal(v);',
+        '  col*=0.82+0.18*sin(dist*6.5-T*2.4);',
+        '  float cov=smoothstep(1.85,0.10,dist); cov=pow(cov,1.20);',
+        '  gl_FragColor=vec4(mix(u_bg,col,cov*u_intensity),1.0);}',
+      ].join('\n');
+
+      function sh(type, src) { var s=gl.createShader(type); gl.shaderSource(s,src); gl.compileShader(s); return s; }
+      var prog = gl.createProgram();
+      gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS));
+      gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS));
+      gl.linkProgram(prog); gl.useProgram(prog);
+
+      var buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+      var aP = gl.getAttribLocation(prog,'p');
+      gl.enableVertexAttribArray(aP); gl.vertexAttribPointer(aP,2,gl.FLOAT,false,0,0);
+
+      var uTime=gl.getUniformLocation(prog,'u_time'), uRes=gl.getUniformLocation(prog,'u_res'),
+          uBg=gl.getUniformLocation(prog,'u_bg'),     uInt=gl.getUniformLocation(prog,'u_intensity');
+
+      var section = document.getElementById('consult');
+      function resize() {
+        canvas.width  = section.offsetWidth;
+        canvas.height = section.offsetHeight;
+        gl.viewport(0,0,canvas.width,canvas.height);
+        gl.uniform2f(uRes,canvas.width,canvas.height);
+      }
+      window.addEventListener('resize', resize); resize();
+
+      var themeMap = {
+        dark:   { bg:[0.039,0.039,0.039], i:0.90 },
+        light:  { bg:[0.839,0.863,0.902], i:0.55 },
+        jade:   { bg:[0.804,0.784,0.745], i:0.68 }
+      };
+      function getThemeKey() {
+        var cl = document.documentElement.classList;
+        if (cl.contains('theme-light')) return 'light';
+        if (cl.contains('theme-jade'))  return 'jade';
+        return 'dark';
+      }
+
+      var start = performance.now();
+      (function frame() {
+        var t = themeMap[getThemeKey()];
+        gl.uniform3f(uBg, t.bg[0], t.bg[1], t.bg[2]);
+        gl.uniform1f(uInt, t.i);
+        gl.uniform1f(uTime,(performance.now()-start)*0.001);
+        gl.drawArrays(gl.TRIANGLES,0,6);
+        requestAnimationFrame(frame);
+      })();
+    })();
     /* ── Featured Collections Tab ── */
     const tabData = {
       monograms: {
@@ -2276,6 +2495,39 @@ const collectionsData = {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
       });
     });
+
+    /* ── Vault lightbox ── */
+    var vaultImages = [
+      'VA001','VA002','VA003','VA004','VA005','VA006','VA007',
+      'VA009','VA010','VA011','VA012','VA013','VA014','VA015',
+      'VA017','VA018','VA019','VA021','VA022','VA023','VA024',
+      'VA025','VA026','VA027','VA028','VA029','VA030','VA031'
+    ];
+    var vaultIndex = 0;
+
+    function openVault(id) {
+      lbMode = 'vault';
+      vaultIndex = vaultImages.indexOf(id);
+      document.getElementById('lightboxTitle').textContent = 'The Vault';
+      renderVault();
+      document.getElementById('lightboxOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function renderVault() {
+      var id = vaultImages[vaultIndex];
+      var img = document.getElementById('lightboxImg');
+      img.src = 'joier-images/vault/' + id + '.jpeg';
+      img.alt = 'The Vault — ' + id;
+      document.getElementById('lightboxLabel').textContent = id;
+      document.getElementById('lightboxCounter').textContent = (vaultIndex + 1) + ' / ' + vaultImages.length;
+      var thumbsEl = document.getElementById('lightboxThumbs');
+      thumbsEl.innerHTML = vaultImages.map(function(v, i) {
+        return '<img class="lightbox-thumb' + (i === vaultIndex ? ' active' : '') + '" src="joier-images/vault/' + v + '.jpeg" alt="' + v + '" loading="lazy" onclick="vaultGoTo(' + i + ')" />';
+      }).join('');
+      var active = thumbsEl.querySelector('.active');
+      if (active) active.scrollIntoView({ block: 'nearest', inline: 'center' });
+    }
+    function vaultGoTo(idx) { vaultIndex = idx; renderVault(); }
 
     /* ── Dynamic copyright year ── */
     var copyEl = document.getElementById('footerCopy');
