@@ -2403,7 +2403,8 @@ const collectionsData = {
               throw new Error(body.error || ('HTTP ' + res.status));
             }
           });
-        }).catch(function() {
+        }).catch(function(error) {
+          console.error('Form submission failed:', error);
           btn.disabled = false; btn.textContent = 'Begin the Conversation';
           err.style.display = 'block';
         });

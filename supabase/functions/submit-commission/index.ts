@@ -88,8 +88,8 @@ serve(async (req) => {
     return json({ success: true, order_reference: generateRef(), email_status: "sent" });
   }
 
-  // Required field validation
-  const required = ["name", "piece_type", "budget", "message"] as const;
+  // Required field validation (budget removed - now optional)
+  const required = ["name", "piece_type", "message"] as const;
   for (const field of required) {
     if (!data[field] || String(data[field]).trim() === "") {
       return json({ error: `Missing required field: ${field}` }, 400);
