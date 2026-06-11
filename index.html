@@ -1250,6 +1250,107 @@
     }
     .theme-btn:hover { border-color: var(--gold); transform: scale(1.15); }
     .theme-btn.active { border-color: var(--gold); background: rgba(201,169,110,0.15); }
+
+    /* ─── PHASE 1: TESTIMONIALS ─────────────────────────────── */
+    .testimonial-anchor,
+    .testimonial-pre-form {
+      padding: 3rem 2rem;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .testimonial-anchor blockquote p,
+    .testimonial-pre-form blockquote p {
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: inherit;
+      margin-bottom: 0.75rem;
+    }
+
+    .testimonial-anchor blockquote cite,
+    .testimonial-pre-form blockquote cite {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    .trust-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-stats span {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    /* ─── PHASE 1: PRICE ANCHOR ─────────────────────────────── */
+    .price-anchor {
+      font-size: 0.8rem;
+      font-style: italic;
+      opacity: 0.65;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ─── PHASE 1: WHATSAPP NAV BUTTON ──────────────────────── */
+    .nav-whatsapp {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid currentColor;
+      padding: 0.35em 0.9em;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-whatsapp:hover {
+      opacity: 0.7;
+    }
+
+    /* ─── PHASE 1: MOBILE IMPROVEMENTS ──────────────────────── */
+    @media (max-width: 480px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .nav-whatsapp {
+        width: 100%;
+        text-align: center;
+        margin-top: 0.25rem;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .hero-ctas a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .trust-stats {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+      }
+
+      .form-row, .cf-row {
+        flex-direction: column;
+      }
+    }
   </style>
 
   <!-- Counter.dev Analytics -->
@@ -1267,6 +1368,7 @@
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#consult">Consult</a></li>
       <li><a href="https://instagram.com/joier_jewelry" target="_blank">@joier_jewelry</a></li>
+      <li><a href="https://wa.me/639173116143" class="nav-whatsapp" target="_blank" rel="noopener">Message Walter</a></li>
     </ul>
     <div style="display:flex; align-items:center; gap:0.5rem;">
       <div class="theme-toggle">
@@ -1317,6 +1419,19 @@
     </div>
   </section>
 
+  <!-- TESTIMONIAL 1 — below hero -->
+  <section class="testimonial-anchor">
+    <blockquote>
+      <p>"[Client quote here — 1–2 sentences. Specific. Her words, not yours.]"</p>
+      <cite>— [First Name], [City] · [Occasion, e.g. Anniversary ring]</cite>
+    </blockquote>
+    <div class="trust-stats">
+      <span>[Number]+ commissions completed</span>
+      <span>Designing in Manila since 2014</span>
+      <span>Every update from Walter, directly</span>
+    </div>
+  </section>
+
   <!-- ═══════════════════════════════════════════════════════ ABOUT -->
   <section id="about">
     <div class="about-img-wrap reveal">
@@ -1327,7 +1442,10 @@
       <h2 class="section-title reveal reveal-delay-1">Made for the Person You Love Most.</h2>
       <div class="gold-rule reveal reveal-delay-2"></div>
       <p class="section-body reveal reveal-delay-2">
-        Walter McCaffrey has been designing fine jewelry in Manila for over a decade. Every piece on this site was made for a specific person, on commission, from scratch. No catalog. No off-the-shelf. If you are looking for something that has never existed before, this is the right place.
+        Every commission I take starts the same way: I ask what this piece is for. Not which metal or what budget — those come later. I need to know who this is for, what it means, and what it should feel like to wear. That conversation is where the piece actually begins.
+      </p>
+      <p class="section-body reveal reveal-delay-2" style="margin-top:1.25rem;">
+        I design everything from scratch, in Manila, and I work with one client at a time. When you commission from JOIER, every decision — form, stone, finish, weight — comes through me.
       </p>
       <div style="margin-top:2.5rem;" class="reveal reveal-delay-4">
         <a href="#consult" class="btn">Begin Your Commission</a>
@@ -1459,8 +1577,16 @@
       <p class="vault-body" style="font-size:0.75rem; margin-bottom:2rem;">
         See something? Note the piece number and mention it when you begin your commission.
       </p>
-      <a href="javascript:void(0)" onclick="openVault('VA001')" class="btn">Enter The Vault</a>
+      <a href="#consult" class="btn">Enter The Vault</a>
     </div>
+  </section>
+
+  <!-- TESTIMONIAL 2 — before form -->
+  <section class="testimonial-pre-form">
+    <blockquote>
+      <p>"[Second client quote — preferably an heirloom or anniversary piece, highest emotional register.]"</p>
+      <cite>— [First Name], [City] · [Occasion]</cite>
+    </blockquote>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════ CONSULT FORM -->
@@ -1544,6 +1670,11 @@
             </select>
           </div>
 
+          <div class="cf-fg">
+            <label for="cf-message">What does this piece mean to you?</label>
+            <textarea id="cf-message" name="message" placeholder="A milestone, a memory, a secret message…" required></textarea>
+          </div>
+
           <div class="cf-row">
             <div class="cf-fg">
               <label for="cf-metal">Metal preference</label>
@@ -1560,6 +1691,7 @@
               </select>
             </div>
             <div class="cf-fg">
+              <p class="price-anchor">Commissions begin at ₱35,000 for 18K gold. Most clients work in the ₱70,000–₱140,000 range.</p>
               <label for="cf-budget">Budget range</label>
               <select id="cf-budget" name="budget" required>
                 <option value="" disabled selected>Select one...</option>
@@ -1571,11 +1703,6 @@
             </div>
           </div>
 
-          <div class="cf-fg">
-            <label for="cf-message">What does this piece mean to you?</label>
-            <textarea id="cf-message" name="message" placeholder="A milestone, a memory, a secret message…" required></textarea>
-          </div>
-
           <button type="submit" class="cf-btn" id="cf-submit">Begin the Conversation</button>
           <p class="cf-err" id="cf-err">Something went wrong. Please try again or reach me on WhatsApp.</p>
         </form>
@@ -1583,7 +1710,8 @@
         <div class="cf-success" id="cf-success">
           <h3>Received.</h3>
           <div class="cf-success-rule"></div>
-          <p>I will be in touch within 24 hours, usually sooner.</p>
+          <p>I'll be in touch within 24 hours, usually sooner.</p>
+          <p>Your first message will come from Walter directly, through the contact method you chose. It will include a few questions about your piece before we talk design.</p>
           <div class="cf-ref-box" id="cf-ref-box" style="display:none;">
             <p class="cf-ref-label">Your Reference</p>
             <p class="cf-ref-num" id="cf-ref-num"></p>
