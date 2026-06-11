@@ -9,15 +9,19 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const ALLOWED_ORIGIN = "https://joier.art";
+const ALLOWED_ORIGINS = ["https://joier.art", "http://localhost:8080", "http://127.0.0.1:8080"];
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Authorization, apikey, x-client-info",
-};
+function getCorsHeaders(requestOrigin: string | null) {
+  const origin = ALLOWED_ORIGINS.includes(requestOrigin || "") ? requestOrigin : ALLOWED_ORIGINS[0];
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization, apikey, x-client-info",
+  };
+}
 
-function json(body: unknown, status = 200) {
+function json(body: unknown, status = 200, origin: string | null = null) {
+  const corsHeaders = getCorsHeaders(origin);
   return new Response(JSON.stringify(body), {
     status,
     headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -68,31 +72,34 @@ JOIER WM Design`;
 }
 
 serve(async (req) => {
+  const origin = req.headers.get("origin");
+  const corsHeaders = getCorsHeaders(origin);
+
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
   if (req.method !== "POST") {
-    return json({ error: "Method not allowed" }, 405);
+    return json({ error: "Method not allowed" }, 405, origin);
   }
 
   let data: Record<string, unknown>;
   try {
     data = await req.json();
   } catch {
-    return json({ error: "Invalid request body" }, 400);
+    return json({ error: "Invalid request body" }, 400, origin);
   }
 
   // Honeypot — bots fill hidden fields, humans don't.
   // Return a fake success so bots don't retry.
   if (data.company && String(data.company).trim() !== "") {
-    return json({ success: true, order_reference: generateRef(), email_status: "sent" });
+    return json({ success: true, order_reference: generateRef(), email_status: "sent" }, 200, origin);
   }
 
   // Required field validation (budget removed - now optional)
   const required = ["name", "piece_type", "message"] as const;
   for (const field of required) {
     if (!data[field] || String(data[field]).trim() === "") {
-      return json({ error: `Missing required field: ${field}` }, 400);
+      return json({ error: `Missing required field: ${field}` }, 400, origin);
     }
   }
 
@@ -121,7 +128,7 @@ serve(async (req) => {
 
   if (dbError) {
     console.error("DB insert failed:", dbError.message);
-    return json({ error: "Failed to record your submission. Please try again." }, 500);
+    return json({ error: "Failed to record your submission. Please try again." }, 500, origin);
   }
 
   // Send notification email — surface status, but don't fail the submission.
@@ -187,5 +194,5 @@ serve(async (req) => {
     success: true,
     order_reference: submission.order_reference,
     email_status: emailStatus,
-  });
+  }, 200, origin);
 });
