@@ -102,7 +102,7 @@
       --lightbox-bg:        rgba(10,10,10,0.97);
       --lightbox-hdr:       rgba(0,0,0,0.8);
       --lightbox-ftr:       rgba(0,0,0,0.85);
-      --nav-bg:             rgba(10,10,10,0.95);
+      --nav-bg:             rgba(10,10,10,0.98);
       --mobile-nav-bg:      rgba(10,10,10,0.98);
       --select-bg:          #1a1a1a;
       --hero-grad-1:        rgba(10,10,10,0.1);
@@ -133,7 +133,7 @@
       --lightbox-bg:        rgba(214,220,230,0.97);
       --lightbox-hdr:       rgba(214,220,230,0.8);
       --lightbox-ftr:       rgba(214,220,230,0.85);
-      --nav-bg:             rgba(214,220,230,0.95);
+      --nav-bg:             rgba(214,220,230,0.98);
       --mobile-nav-bg:      rgba(214,220,230,0.98);
       --select-bg:          #ccd3de;
       --hero-grad-1:        rgba(214,220,230,0.1);
@@ -164,7 +164,7 @@
       --lightbox-bg:        rgba(205,200,190,0.97);
       --lightbox-hdr:       rgba(205,200,190,0.8);
       --lightbox-ftr:       rgba(205,200,190,0.85);
-      --nav-bg:             rgba(205,200,190,0.95);
+      --nav-bg:             rgba(205,200,190,0.98);
       --mobile-nav-bg:      rgba(205,200,190,0.98);
       --select-bg:          #c4bfb5;
       --hero-grad-1:        rgba(205,200,190,0.1);
@@ -197,8 +197,8 @@
       align-items: center;
       justify-content: space-between;
       padding: 1.5rem 3.5rem;
-      background: linear-gradient(to bottom, var(--nav-bg) 0%, transparent 100%);
-      backdrop-filter: blur(2px);
+      background: var(--nav-bg);
+      backdrop-filter: blur(4px);
     }
 
     .nav-logo {
@@ -226,7 +226,7 @@
       font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--text);
       transition: color 0.3s;
     }
     .nav-links a:hover { color: var(--gold); }
